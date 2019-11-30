@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="entity.TBillEntity" table="t_bill" schema="cpms">
+        <id name="billId" column="BillID"/>
+        <property name="residentId" column="ResidentID"/>
+        <property name="billType" column="BillType"/>
+        <property name="billTime" column="BillTime"/>
+        <property name="billMoney" column="BillMoney"/>
+        <property name="billMethod" column="BillMethod"/>
+        <property name="billStatus" column="BillStatus"/>
+    </class>
+</hibernate-mapping>

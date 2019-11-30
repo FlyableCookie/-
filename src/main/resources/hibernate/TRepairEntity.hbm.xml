@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="entity.TRepairEntity" table="t_repair" schema="cpms">
+        <id name="repairId" column="RepairID"/>
+        <property name="residentId" column="ResidentID"/>
+        <property name="repairType" column="RepairType"/>
+        <property name="repairContent" column="RepairContent"/>
+        <property name="repairTime" column="RepairTime"/>
+        <property name="repairFback" column="RepairFback"/>
+        <property name="repairMoney" column="RepairMoney"/>
+    </class>
+</hibernate-mapping>
