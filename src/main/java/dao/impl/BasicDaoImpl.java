@@ -1,38 +1,45 @@
 package dao.impl;
 
 import dao.BasicDao;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.annotation.Resource;
 import java.util.List;
 
-public class BasicDaoImpl implements BasicDao {
+public abstract class BasicDaoImpl<T> implements BasicDao<T> {
 
-    @Resource(name = "sessionFactory")
+    @Autowired
     SessionFactory sessionFactory;
 
-    @Override
-    public Object findById(Integer i) {
-        return null;
+    public abstract Class<T> getEntityClass();
+
+    public Session getSession(){
+        return sessionFactory.getCurrentSession();
     }
 
     @Override
-    public void save(Object entity) {
-
+    public T findById(Integer i) {
+        return getSession().get(getEntityClass(), i);
     }
 
     @Override
-    public void update(Object entity) {
-
+    public void save(T entity) {
+        getSession().persist(entity);
     }
 
     @Override
-    public void delete(Object entity) {
-
+    public void update(T entity) {
+        getSession().update(entity);
     }
 
     @Override
-    public List findAll() {
+    public void delete(T entity) {
+        getSession().delete(entity);
+    }
+
+    @Override
+    public List<T> findAll() {
         return null;
     }
 }
