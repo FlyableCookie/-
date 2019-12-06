@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+<!--    <property name="connection.url">jdbc:mysql://localhost:3306/cpms</property>-->
+<!--    <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>-->
+<!--    <property name="connection.username">root</property>-->
+<!--    <property name="connection.password">******</property>-->
+
+<!--    <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>-->
+
+<!--    <property name="hibernate.connection.datasource">datasource</property>-->
+
+<!--    <property name="show_sql">true</property>-->
+<!--    <property name="format_sql">true</property>-->
+
+<!--    <mapping class="entity.TAnnounEntity"/>-->
+<!--    <mapping class="entity.TBillEntity"/>-->
+<!--    <mapping class="entity.TComplaintEntity"/>-->
+<!--    <mapping class="entity.TEmployeeEntity"/>-->
+<!--    <mapping class="entity.THouseEntity"/>-->
+<!--    <mapping class="entity.TParkingEntity"/>-->
+<!--    <mapping class="entity.TRepairEntity"/>-->
+<!--    <mapping class="entity.TResidentsEntity"/>-->
+<!--    <mapping class="entity.TUsersEntity"/>-->
+
+<!--    <mapping resource="hibernate/TAnnounEntity.hbm.xml"/>-->
+<!--    <mapping resource="hibernate/TBillEntity.hbm.xml"/>-->
+<!--    <mapping resource="hibernate/TComplaintEntity.hbm.xml"/>-->
+<!--    <mapping resource="hibernate/TEmployeeEntity.hbm.xml"/>-->
+<!--    <mapping resource="hibernate/THouseEntity.hbm.xml"/>-->
+<!--    <mapping resource="hibernate/TParkingEntity.hbm.xml"/>-->
+<!--    <mapping resource="hibernate/TRepairEntity.hbm.xml"/>-->
+<!--    <mapping resource="hibernate/TResidentsEntity.hbm.xml"/>-->
+<!--    <mapping resource="hibernate/TUsersEntity.hbm.xml"/>-->
+
+    <!-- DB schema will be updated if needed -->
+    <!-- <property name="hibernate.hbm2ddl.auto">update</property> -->
+  </session-factory>
+</hibernate-configuration>

@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="entity.TComplaintEntity" table="t_complaint" schema="cpms">
+        <id name="complaintId" column="ComplaintID"/>
+        <property name="residentId" column="ResidentID"/>
+        <property name="complaintTitle" column="ComplaintTitle"/>
+        <property name="complaintContent" column="ComplaintContent"/>
+        <property name="complaintTime" column="ComplaintTime"/>
+        <property name="complaintFback" column="ComplaintFback"/>
+    </class>
+</hibernate-mapping>

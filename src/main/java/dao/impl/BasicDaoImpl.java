@@ -1,38 +1,46 @@
 package dao.impl;
 
 import dao.BasicDao;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 import javax.annotation.Resource;
 import java.util.List;
 
-public class BasicDaoImpl implements BasicDao {
+public abstract class BasicDaoImpl<T> implements BasicDao<T> {
 
     @Resource(name = "sessionFactory")
     SessionFactory sessionFactory;
 
+    public abstract Class<T> getEntityClass();
+
+    public Session getSession(){
+        return sessionFactory.getCurrentSession();
+    }
+
     @Override
-    public Object findById(Integer i) {
+    public T findById(Integer i) {
+//        return getSession().persist();
         return null;
     }
 
     @Override
-    public void save(Object entity) {
+    public void save(T entity) {
 
     }
 
     @Override
-    public void update(Object entity) {
+    public void update(T entity) {
 
     }
 
     @Override
-    public void delete(Object entity) {
+    public void delete(T entity) {
 
     }
 
     @Override
-    public List findAll() {
+    public List<T> findAll() {
         return null;
     }
 }

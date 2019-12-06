@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="entity.TEmployeeEntity" table="t_employee" schema="cpms">
+        <id name="employeeId" column="EmployeeID"/>
+        <property name="employeeName" column="EmployeeName"/>
+        <property name="employeeSex" column="EmployeeSex"/>
+        <property name="idNumber" column="IdNumber"/>
+        <property name="phoneNumber" column="PhoneNumber"/>
+        <property name="position" column="Position"/>
+    </class>
+</hibernate-mapping>
