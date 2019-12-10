@@ -5,4 +5,25 @@
         "http://struts.apache.org/dtds/struts-2.5.dtd">
 
 <struts>
+
+    <constant name="struts.enable.DynamicMethodInvocation" value="true"/>
+    <package name="bill" namespace="/" extends="struts-default,json-default">
+        <default-class-ref class="action.bill.BillAction"/>
+        <action name="BillAction_*" method="{1}">
+            <result name="success" type="json">
+                <param name="root">billEntityList</param>
+            </result>
+
+            <allowed-methods>getBill,getBillList</allowed-methods>
+        </action>
+        
+        <action name="*Bill" method="{1}">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+
+            <allowed-methods>saveBill,updateBill</allowed-methods>
+        </action>
+    </package>
+
 </struts>

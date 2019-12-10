@@ -3,6 +3,7 @@ package dao.impl;
 import dao.BasicDao;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
@@ -34,12 +35,14 @@ public abstract class BasicDaoImpl<T> implements BasicDao<T> {
     }
 
     @Override
-    public void delete(T entity) {
-        getSession().delete(entity);
+    public void delete(Integer i) {
+        getSession().delete(findById(i));
     }
 
     @Override
     public List<T> findAll() {
-        return null;
+        String hql = "From " + getEntityClass().getName();
+        Query query = getSession().createQuery(hql);
+        return query.list();
     }
 }
