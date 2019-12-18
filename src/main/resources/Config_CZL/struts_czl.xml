@@ -13,7 +13,6 @@
             <result name="success" type="json">
                 <param name="root">billEntityList</param>
             </result>
-
             <allowed-methods>getBill,getBillList</allowed-methods>
         </action>
         
@@ -21,9 +20,19 @@
             <result type="json">
                 <param name="root">result</param>
             </result>
-
             <allowed-methods>saveBill,updateBill</allowed-methods>
         </action>
+    </package>
+
+    <package name="repair" namespace="/" extends="struts-default,json-default">
+        <default-class-ref class="action.repair.RepairAction"/>
+        <action name="RepairAction_*" method="{1}">
+            <result name="success" type="json">
+                <param name="root">repairEntityList</param>
+            </result>
+            <allowed-methods>getRepair,getRepairList</allowed-methods>
+        </action>
+
     </package>
 
 </struts>
