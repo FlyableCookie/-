@@ -6,4 +6,5 @@
 
 <struts>
     <include file="Config_CZL/struts_czl.xml"/>
+    <include file="Config_DZG/struts_dzg.xml"/>
 </struts>
