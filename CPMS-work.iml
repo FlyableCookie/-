@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module version="4">
+<module type="JAVA_MODULE" version="4">
   <component name="ExternalSystem" externalSystem="Maven" />
   <component name="FacetManager">
     <facet type="web" name="Web">
@@ -15,28 +15,18 @@
         <configuration>
           <fileset id="s2fileset" name="My Fileset" removed="false">
             <file>file://$MODULE_DIR$/src/main/resources/struts.xml</file>
+            <file>file://$MODULE_DIR$/src/main/resources/Config_CZL/struts_czl.xml</file>
             <file>jar://F:/Maven/Maven-Repository/org/apache/struts/struts2-core/2.5.20/struts2-core-2.5.20.jar!/struts-default.xml</file>
             <file>jar://F:/Maven/Maven-Repository/org/apache/struts/struts2-json-plugin/2.5.20/struts2-json-plugin-2.5.20.jar!/struts-plugin.xml</file>
-            <file>file://$MODULE_DIR$/src/main/resources/Config_CZL/struts_czl.xml</file>
+            <file>jar://F:/Maven/Maven-Repository/org/apache/struts/struts2-spring-plugin/2.5.20/struts2-spring-plugin-2.5.20.jar!/struts-plugin.xml</file>
           </fileset>
           <propertiesKeys disabled="false" />
         </configuration>
       </facet>
     </facet>
-    <facet type="hibernate" name="Hibernate">
-      <configuration>
-        <datasource-map>
-          <unit-entry name="SessionFactory" />
-          <unit-entry name="hibernate.cfg.xml" value="49ea0352-632e-46d2-9039-53f25c98922d" />
-        </datasource-map>
-        <naming-strategy-map />
-        <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/main/resources/hibernate.cfg.xml" />
-      </configuration>
-    </facet>
     <facet type="Spring" name="Spring">
       <configuration>
-        <fileset id="fileset" name="ApplicationContext" removed="false">
-          <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/applicationContext.xml</file>
+        <fileset id="fileset" name="Spring Application Context" removed="false">
           <file>file://$MODULE_DIR$/src/main/resources/applicationContext.xml</file>
         </fileset>
       </configuration>

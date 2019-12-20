@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
+<<<<<<< HEAD
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:context="http://www.springframework.org/schema/context"
     xmlns:aop="http://www.springframework.org/schema/aop" 
@@ -12,25 +13,55 @@
     http://www.springframework.org/schema/aop/spring-aop.xsd
     http://www.springframework.org/schema/tx 
     http://www.springframework.org/schema/tx/spring-tx.xsd">
+=======
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd">
+>>>>>>> branch 'master' of https://github.com/203922933/-.git
 
+<<<<<<< HEAD
 	<context:component-scan base-package="dao"/>
     <context:component-scan base-package="entity"/>
     <context:component-scan base-package="service"/>
     <context:component-scan base-package="test"/>
     <context:component-scan base-package="com.property"/>
 	
+=======
+    <context:component-scan base-package="dao"/>
+    <context:component-scan base-package="entity"/>
+    <context:component-scan base-package="service"/>
+    <context:component-scan base-package="test"/>
+
+>>>>>>> branch 'master' of https://github.com/203922933/-.git
     <!--注册c3p0数据源-->
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
-        <property name="driverClass" value="com.mysql.jdbc.Driver"/>
+        <property name="driverClass" value="com.mysql.cj.jdbc.Driver"/>
 
+<<<<<<< HEAD
         <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/cpms?useSSL=true&amp;serverTimezone=UTC"/>
+=======
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/cpms?useUnicode=true;characterEncoding=UTF-8"/>
+>>>>>>> branch 'master' of https://github.com/203922933/-.git
         <property name="user" value="root"/>
     <!--需修改-->
+<<<<<<< HEAD
         <property name="password" value="1234"/>
+=======
+        <property name="password" value="czl990914."/>
+>>>>>>> branch 'master' of https://github.com/203922933/-.git
     </bean>
 
     <!--注册SessionFactory  将hibernate交给Spring-->
-    <bean id="SessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <property name="mappingDirectoryLocations" value="classpath:hibernate"/>
         <property name="hibernateProperties">
@@ -38,9 +69,11 @@
                 <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
                 <prop key="hibernate.show_sql">true</prop>
                 <prop key="hibernate.format_sql">true</prop>
+                <prop key="hibernate.connection.autocommit">true</prop>
             </props>
         </property>
     </bean>
+<<<<<<< HEAD
     <!-- 配置hibernateTemplate -->
     <bean id="hibernateTemplate" class="org.springframework.orm.hibernate5.HibernateTemplate">
     	<property name="SessionFactory" ref="SessionFactory"></property>
@@ -61,5 +94,32 @@
     <bean id="userDao" class="dao.UserDao">
     	<property name="hibernateTemplate" ref="hibernateTemplate"></property>
     </bean>
+=======
+
+    <!-- 事务管理 -->
+    <bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <!-- 注解 -->
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+
+    <!-- 配置方法 -->
+<!--    <tx:advice id="txAdvice" transaction-manager="transactionManager">-->
+<!--        <tx:attributes>-->
+<!--            <tx:method name="save"/>-->
+<!--        </tx:attributes>-->
+<!--    </tx:advice>-->
+
+    <!-- 定义切面 -->
+<!--    <aop:config>-->
+<!--        <aop:pointcut id="serviceMethods" expression="execution(* service.*.*(..))"/>-->
+<!--        <aop:advisor advice-ref="txAdvice" pointcut-ref="serviceMethods"/>-->
+<!--    </aop:config>-->
+
+<!--    <import resource="Config_CZL/spring_czl.xml"/>-->
+
+
+>>>>>>> branch 'master' of https://github.com/203922933/-.git
 
 </beans>

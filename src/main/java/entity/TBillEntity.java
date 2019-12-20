@@ -12,7 +12,7 @@ public class TBillEntity {
     private Timestamp billTime;
     private double billMoney;
     private String billMethod;
-    private byte billStatus;
+    private int billStatus;
 
     @Id
     @Column(name = "BillID")
@@ -76,11 +76,11 @@ public class TBillEntity {
 
     @Basic
     @Column(name = "BillStatus")
-    public byte getBillStatus() {
+    public int getBillStatus() {
         return billStatus;
     }
 
-    public void setBillStatus(byte billStatus) {
+    public void setBillStatus(int billStatus) {
         this.billStatus = billStatus;
     }
 
@@ -113,7 +113,7 @@ public class TBillEntity {
         temp = Double.doubleToLongBits(billMoney);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         result = 31 * result + (billMethod != null ? billMethod.hashCode() : 0);
-        result = 31 * result + (int) billStatus;
+        result = 31 * result + billStatus;
         return result;
     }
 }
