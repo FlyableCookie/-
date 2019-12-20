@@ -4,17 +4,14 @@
     "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
   <session-factory>
-<<<<<<< HEAD
     <property name="connection.url">jdbc:mysql://localhost:3306/cpms?useSSL=false&amp;serverTimezone=UTC</property>
     <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
     <property name="connection.username">root</property>
     <property name="connection.password">1234</property>
-=======
 <!--    <property name="connection.url">jdbc:mysql://localhost:3306/cpms</property>-->
 <!--    <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>-->
 <!--    <property name="connection.username">root</property>-->
 <!--    <property name="connection.password">******</property>-->
->>>>>>> branch 'master' of https://github.com/203922933/-.git
 
 <!--    <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>-->
 
