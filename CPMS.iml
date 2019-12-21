@@ -10,6 +10,19 @@
           <root url="file://$MODULE_DIR$/src/main/webapp" relative="/" />
         </webroots>
       </configuration>
+      <facet type="Struts2" name="Struts 2">
+        <configuration>
+          <fileset id="s2fileset" name="My Fileset" removed="false">
+            <file>file://$MODULE_DIR$/src/main/resources/struts.xml</file>
+            <file>file://$MODULE_DIR$/src/main/resources/Config_CZL/struts_czl.xml</file>
+            <file>file://$MODULE_DIR$/src/main/resources/Config_DZG/struts_dzg.xml</file>
+            <file>jar://F:/Maven/Maven-Repository/org/apache/struts/struts2-core/2.5.20/struts2-core-2.5.20.jar!/struts-default.xml</file>
+            <file>jar://F:/Maven/Maven-Repository/org/apache/struts/struts2-json-plugin/2.5.20/struts2-json-plugin-2.5.20.jar!/struts-plugin.xml</file>
+            <file>jar://F:/Maven/Maven-Repository/org/apache/struts/struts2-spring-plugin/2.5.20/struts2-spring-plugin-2.5.20.jar!/struts-plugin.xml</file>
+          </fileset>
+          <propertiesKeys disabled="false" />
+        </configuration>
+      </facet>
     </facet>
     <facet type="Spring" name="Spring">
       <configuration>

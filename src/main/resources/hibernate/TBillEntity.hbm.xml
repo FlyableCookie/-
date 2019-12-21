@@ -6,11 +6,12 @@
 
     <class name="entity.TBillEntity" table="t_bill" schema="cpms">
         <id name="billId" column="BillID"/>
-        <property name="residentId" column="ResidentID"/>
         <property name="billType" column="BillType"/>
         <property name="billTime" column="BillTime"/>
         <property name="billMoney" column="BillMoney"/>
         <property name="billMethod" column="BillMethod"/>
         <property name="billStatus" column="BillStatus"/>
+        <many-to-one name="residentsEntity" column="ResidentID" fetch="join"
+                     lazy="false" class="entity.TResidentsEntity"/>
     </class>
 </hibernate-mapping>

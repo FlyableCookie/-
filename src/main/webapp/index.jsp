@@ -36,7 +36,7 @@
        text-align: center;
     }
     .top{
-    	width: 100%;
+		width: 100%;
     	height: 60px;
     	background-color: black;
     	color: silver;

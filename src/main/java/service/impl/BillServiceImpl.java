@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import service.BillService;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 @Service
@@ -46,4 +47,18 @@ public class BillServiceImpl implements BillService {
     public List<TBillEntity> findAll() {
         return billDao.findAll();
     }
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    @Override
+    public List<TBillEntity> findByTime(Timestamp begin, Timestamp end) {
+        return billDao.findByTime(begin, end);
+    }
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    @Override
+    public List<TBillEntity> findByTime(Timestamp begin) {
+        return billDao.findByTime(begin);
+    }
+
+
 }
