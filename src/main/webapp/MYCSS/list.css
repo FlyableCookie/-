@@ -1,0 +1,159 @@
+a{
+	font-size: 12px;
+	color: #ffca18;
+}
+A:link {
+	color: #ffca18;
+	text-decoration: none
+}
+A:visited {
+	color: #ffca18;
+	text-decoration: none
+}
+A:active {
+	text-decoration: underline
+}
+A:hover {
+	text-decoration: underline
+}
+.td_1,.td_2{
+	font-size: 15px;
+	font-family: 'ºÚÌå';
+	color: black;
+	border: solid 1px #dddddd;
+}
+.td_1 {
+	background-color: white;
+}
+.td_2 {
+	background-color: #ebf1f5;
+}
+.tbody td{
+	height: 30px;
+}
+.table1{
+	margin-top: 20px;
+	width: 50%;
+}
+.table2{
+	align: center;
+	width: 100%;
+	height: 100%;
+	border: 1px solid #dddddd;
+	box-shadow: 1px 1px 1px 1px #292929;
+	background-color: silver;
+}
+.find{
+	height: 40px;
+}
+.select{
+	font-size: 14px;
+	border-radius: 5px;
+	height: 25px;
+	width: 100px;
+}
+.in{
+	font-size: 14px;
+	border-radius: 5px;
+	padding-left: 10px;
+	height: 20px;
+	border: 2px #ced7dc solid;
+	width: 150px;
+	color: #1e1e1e;
+}
+.tb_showall
+{
+	background: white;	
+	font-size: 21px;
+	font-weight: bold;
+	font-family: 'ËÎÌå';
+	text-align: left;
+	color: black;
+}
+.td_header {
+	background-color: black;
+	font-weight: bold;
+	font-family: '¿­Ìå';
+	font-size: 17px;
+	color: white;
+	text-align: center;
+}
+.back{
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	height: 100%;
+	background-color: white;
+	border: solid 1px silver;
+}
+.button1,.button2,.button3,.button4{
+	color: white;
+	border: none;
+	cursor:pointer;
+}
+.button1{
+	background-color: #89c1fa;
+	border-radius: 5px;
+	height: 28px;
+	width: 80px;
+}
+.button2{
+	background-color: orange;
+	height: 22px;
+	width: 80px;
+	float: right;
+	margin-right: 10px;
+}
+.button3{
+	float: right;
+	margin-right: 10px;
+	height: 22px;
+	width: 80px;
+	background-color: #585858;
+}
+.button4{
+	position:fixed;
+	right:40px;
+	height: 22px;
+	width: 80px;
+	background-color: #43df62;
+}
+.button5{
+	background-color: #d10e0e;
+	color: white;
+	border: solid 1px #b62a2a;
+	cursor:pointer;
+	border-radius: 5px;
+}
+.button6{
+	background-color: #43df62;
+	color: white;
+	border: solid 1px #3bb437;
+	cursor:pointer;
+	border-radius: 5px;
+}
+.button7{
+	background-color: red;
+	color: white;
+	border: solid 1px black;
+	cursor:pointer;
+	float: right;
+	font-size: 13px;
+}
+.button8{
+	background-color: white;
+	border-radius: 5px;
+	height: 28px;
+	width: 80px;
+	color: black;
+}
+.button2:hover{
+	box-shadow: 1px 1px 1px 1px black;
+}
+.bottom{
+	position:fixed;
+	left:40px;
+	bottom:10px;
+	width:100%;
+	height:50px;
+}

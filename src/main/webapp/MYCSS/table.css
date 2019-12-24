@@ -1,0 +1,97 @@
+.back{
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	height: 100%;
+	background-size: 100%;
+}
+.border{
+	border:1px solid #90caef;
+}
+.table{
+	margin:0 auto;
+	height: 560px;
+	width: 50%;
+}
+.headFont{
+	font-family: 'ËÎÌו';
+	text-align: center;
+	font-size: 20px;
+	line-height: 60px;
+	color: black;
+	font-weight: bold;
+	background-color: #f7f8fa;
+	height: 60px;
+	border: 1px solid silver;
+}
+.leftFont1,.leftFont2,.leftFont3{
+	font-size: 17px;
+	text-align: right;
+	color: black;
+	width: 200px;
+	padding-right: 10px;
+}
+.rightFont{
+	font-size: 15px;
+	color: black;
+	font-weight: bold;
+}
+.midFont{
+	font-size: 14px;
+	color: #89c1fa;
+}
+.tips{
+	font-size: 12px;
+	color: gold;
+	font-weight: bold;
+}
+.in{
+	font-size: 14px;
+	border-radius: 5px;
+	padding-left: 10px;
+	height: 25px;
+	border: 2px #ced7dc solid;
+	width: 270px;
+	color: #1e1e1e;
+}
+.area{
+	font-size: 14px;
+	border-radius: 5px;
+	padding-left: 10px;
+	height: 70px;
+	border: 2px #ced7dc solid;
+	width: 270px;
+	color: #1e1e1e;
+	resize: none;
+}
+.select1{
+	font-size: 14px;
+	border-radius: 5px;
+	height: 25px;
+	width: 240px;
+}
+.select2{
+	font-size: 14px;
+	border-radius: 5px;
+	height: 25px;
+	width: 90px;
+}
+.star{
+	font-size: 17px;
+	color: red;
+}
+.button{
+	border:1px solid #7dc65b;
+	background-color: #7dc65b;
+	cursor:pointer;
+	font-size: 16px;
+	border-radius:10px;
+	margin-top:10px;
+	color: white;
+	width: 100px;
+	height: 35px;
+	font-weight: bold;
+}
+.button:hover{
+	box-shadow: 1px 1px 1px 1px silver;
+}

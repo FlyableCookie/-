@@ -32,6 +32,12 @@ public class AnnounService {
 		return announ;
 	}
 	
+	//进行类查询
+	public List<TAnnounEntity> getLike(String titleLike) {
+		List<TAnnounEntity> likeannoun =  announDao.likeAnnoun(titleLike);
+		return likeannoun;
+	}
+	
 	//新增公告信息
 	public boolean addNew(TAnnounEntity announ) {
 		if(announDao.addAnnoun(announ)) {
@@ -45,5 +51,19 @@ public class AnnounService {
 	public int theID(String username) {
 		int theID = announDao.associateID(username, "1");
 		return theID;
+	}
+	
+	//执行删除
+	public boolean delete(int announId) {
+		if(announDao.getAnnoun(announId).isEmpty()) {
+			return false;
+		}
+		announDao.deleteAnnoun(announDao.getAnnoun(announId).get(0));
+		return true;
+	}
+	
+	//拿到相关编号物业公告的信息
+	public TAnnounEntity getOne(int announId) {
+		return announDao.getAnnoun(announId).get(0);
 	}
 }

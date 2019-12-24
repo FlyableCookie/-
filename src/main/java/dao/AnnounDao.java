@@ -44,4 +44,21 @@ public class AnnounDao {
 		List<TAnnounEntity> announ = (List<TAnnounEntity>) hibernateTemplate.find("from TAnnounEntity");
 		return announ;
 	}
+	
+	//根据ID编号获取物业消息
+	public List<TAnnounEntity> getAnnoun(int announId) {
+		List<TAnnounEntity> announ = (List<TAnnounEntity>) hibernateTemplate.find("from TAnnounEntity where announId=?", announId);
+		return announ;
+	}
+	
+	//根据物业标题进行类查询
+	public List<TAnnounEntity> likeAnnoun(String titleLike) {
+		List<TAnnounEntity> likeannoun = (List<TAnnounEntity>) hibernateTemplate.find("from TAnnounEntity where announTitle like ?", "%"+titleLike+"%");
+		return likeannoun;
+	}
+	
+	//删除该物业消息
+	public void deleteAnnoun(TAnnounEntity announ) {
+		hibernateTemplate.delete(announ);
+	}
 }

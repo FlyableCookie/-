@@ -18,19 +18,11 @@ import service.AnnounService;
 public class AnnounAction extends ActionSupport{
 	private AnnounService announService;
 	private List<TAnnounEntity> announ;
-//	private TAnnounEntity announEntity;
+	private int announId;
 	private String announTitle;
     private String announContent;
     private Timestamp announTime;
     private int employeeID;
-	
-//	public TAnnounEntity getAnnounEntity() {
-//		return announEntity;
-//	}
-//
-//	public void setAnnounEntity(TAnnounEntity announEntity) {
-//		this.announEntity = announEntity;
-//	}
 
 	public void setAnnounService(AnnounService announService) {
 		this.announService = announService;
@@ -44,6 +36,14 @@ public class AnnounAction extends ActionSupport{
 		return announ;
 	}
 	
+	public int getAnnounId() {
+		return announId;
+	}
+
+	public void setAnnounId(int announId) {
+		this.announId = announId;
+	}
+
 	public String getAnnounTitle() {
 		return announTitle;
 	}
@@ -82,6 +82,12 @@ public class AnnounAction extends ActionSupport{
         return "getAll";
     }
 	
+	//��ȡ��ѯ��Ϣ��ص�����
+	public String findLike() {
+		announ = announService.getLike(announTitle);
+        return "findLike";
+    }
+	
 	//����µĹ�����Ϣ
 	public String addNew() {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
@@ -90,11 +96,11 @@ public class AnnounAction extends ActionSupport{
 		super.clearErrorsAndMessages();
 		if("".equals(announTitle) || announTitle == null) {
 			addActionError("������ⲻ��Ϊ��");
-			return "false";
+			return "Addfalse";
 		}
 		if("".equals(announContent) || announContent == null) {
 			addActionError("�������ݲ���Ϊ��");
-			return "false";
+			return "Addfalse";
 		}
 		TAnnounEntity announEntity = new TAnnounEntity();
 		announEntity.setAnnounTitle(String.valueOf(announTitle));
@@ -102,10 +108,30 @@ public class AnnounAction extends ActionSupport{
 		announEntity.setAnnounTime(new Timestamp(new Date().getTime()));
 		announEntity.setEmployeeID(announService.theID(userName));
 		if(announService.addNew(announEntity)){
-			return "success";
+			return "Addsuccess";
 		} else {
 			addActionError("����ʧ��");
-			return "false";
+			return "Addfalse";
 		}
+	}
+	
+	//ɾ������
+	public String Delete() {
+		if(announService.delete(announId)) {
+			return "Delsuccess";
+		}
+		addActionError("ɾ��ʧ��");
+		return "Delfalse";
+	}
+	
+	//�鿴����
+	public String Check() {
+		TAnnounEntity announEntity = new TAnnounEntity();
+		announEntity = announService.getOne(announId);
+		announTitle = announEntity.getAnnounTitle();
+	    announContent = announEntity.getAnnounContent();
+	    announTime = announEntity.getAnnounTime();
+	    employeeID = announEntity.getEmployeeID();
+	    return "Checksuccess";
 	}
 }
