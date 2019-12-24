@@ -10,6 +10,17 @@ public class TAnnounEntity {
     private String announTitle;
     private String announContent;
     private Timestamp announTime;
+    private int employeeID;
+
+    @Basic
+    @Column(name = "EmployeeID")
+    public int getEmployeeID() {
+        return employeeID;
+    }
+
+    public void setEmployeeID(int employeeID) {
+        this.employeeID = employeeID;
+    }
 
     @Id
     @Column(name = "AnnounID")

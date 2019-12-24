@@ -8,7 +8,27 @@
 
     <constant name="struts.enable.DynamicMethodInvocation" value="true"/>
     <package name="bill" namespace="/" extends="struts-default,json-default">
+        
+        <interceptors>
+            <interceptor name="loginFilter" class="action.bill.interceptor.billInterceptor"/>
+            <interceptor-stack name="billActionFilter">
+                <interceptor-ref name="defaultStack"/>
+                <interceptor-ref name="loginFilter"/>
+            </interceptor-stack>
+        </interceptors>
+        
+        <default-interceptor-ref name="billActionFilter"/>
+
         <default-class-ref class="action.bill.BillAction"/>
+
+        <global-results>
+            <result name="login">/index.jsp</result>
+        </global-results>
+
+        <action name="bill" method="execute">
+            <result name="success">/bill/billManagement.jsp</result>
+        </action>
+
         <action name="GetBillAction_*" method="{1}">
             <result name="success" type="json">
                 <param name="root">billEntityList</param>

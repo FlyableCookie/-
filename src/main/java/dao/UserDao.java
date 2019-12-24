@@ -29,13 +29,13 @@ public class UserDao {
 	 
 	//判断用户是否存在
 	public boolean verifyUsername(String username, String usertype) {
-		List<TUsersEntity> users = (List<TUsersEntity>) hibernateTemplate.find("from TUsersEntity where userName=? and userType=?", username, usertype);
+		List<TUsersEntity> users = (List<TUsersEntity>) hibernateTemplate.find("from TUsersEntity where userName='"+username+"' and userType='"+usertype+"'");
 		return users.isEmpty() ? false:true;
 	}
 	
 	//判断密码是否正确
 	public boolean verifyPassword(String username, String password, String usertype) {
-		List queryList = hibernateTemplate.find("select userPwd from TUsersEntity where userName=? and userType=?", username, usertype);	
+		List queryList = hibernateTemplate.find("select userPwd from TUsersEntity where userName='"+username+"' and userType='"+usertype+"'");
 		return ( queryList.get(0).toString() ).equals(password);
 	}
 	
