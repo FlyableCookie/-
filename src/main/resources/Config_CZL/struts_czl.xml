@@ -9,18 +9,22 @@
     <constant name="struts.enable.DynamicMethodInvocation" value="true"/>
     <package name="bill" namespace="/" extends="struts-default,json-default">
         <default-class-ref class="action.bill.BillAction"/>
-        <action name="BillAction_*" method="{1}">
+        <action name="GetBillAction_*" method="{1}">
             <result name="success" type="json">
                 <param name="root">billEntityList</param>
             </result>
-            <allowed-methods>getBill,getBillList</allowed-methods>
+            <allowed-methods>getBill,getBillList,getBillByStatus</allowed-methods>
         </action>
         
-        <action name="*Bill" method="{1}">
-            <result type="json">
+        <action name="BillAction_*" method="{1}">
+            <result name="success" type="json">
                 <param name="root">result</param>
             </result>
-            <allowed-methods>saveBill,updateBill</allowed-methods>
+<!--            <exception-mapping exception="org.springframework.dao.DataIntegrityViolationException"-->
+<!--                               result="success">-->
+<!--                <param name="root">result</param>-->
+<!--            </exception-mapping>-->
+            <allowed-methods>saveBill,updateBill,deleteBill</allowed-methods>
         </action>
     </package>
 

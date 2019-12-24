@@ -11,7 +11,10 @@
         <property name="billMoney" column="BillMoney"/>
         <property name="billMethod" column="BillMethod"/>
         <property name="billStatus" column="BillStatus"/>
+        <property name="employeeId" column="EmployeeID" type="java.lang.Integer"/>
         <many-to-one name="residentsEntity" column="ResidentID" fetch="join"
                      lazy="false" class="entity.TResidentsEntity"/>
-    </class>
+<!--        <many-to-one name="employeeEntity" column="EmployeeID" fetch="join"-->
+<!--                     lazy="false" class="entity.TEmployeeEntity"/>-->
+     </class>
 </hibernate-mapping>

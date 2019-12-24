@@ -11,17 +11,17 @@ public class TResidentsEntity {
     private String idNumber;
     private String phoneNumber;
     private Timestamp checkinTime;
-    private Set<TBillEntity> billEntities;
+//    private Set<TBillEntity> billEntities;
 
     public TResidentsEntity(){};
 
-    public Set<TBillEntity> getBillEntities() {
-        return billEntities;
-    }
-
-    public void setBillEntities(Set<TBillEntity> billEntities) {
-        this.billEntities = billEntities;
-    }
+//    public Set<TBillEntity> getBillEntities() {
+//        return billEntities;
+//    }
+//
+//    public void setBillEntities(Set<TBillEntity> billEntities) {
+//        this.billEntities = billEntities;
+//    }
 
     public int getResidentId() {
         return residentId;

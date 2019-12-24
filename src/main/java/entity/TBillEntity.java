@@ -10,9 +10,17 @@ public class TBillEntity {
     private double billMoney;
     private String billMethod;
     private int billStatus;
-
+    private Integer employeeId;
     private TResidentsEntity residentsEntity;
 
+
+    public Integer getEmployeeId() {
+        return employeeId;
+    }
+
+    public void setEmployeeId(Integer employeeId) {
+        this.employeeId = employeeId;
+    }
 
     public TResidentsEntity getResidentsEntity() {
         return residentsEntity;
