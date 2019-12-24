@@ -15,8 +15,8 @@ public class UserService {
 		boolean passLogin = false;
 		passLogin = userDao.verifyUsername(username,usertype);
 		if(passLogin) {
-			passLogin = userDao.verifyPassword(username, password, usertype);
-		}
+		passLogin = userDao.verifyPassword(username, password, usertype);
+	}
 		return passLogin;
 	}
 	

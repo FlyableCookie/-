@@ -13,66 +13,110 @@
 <head>
     <title>账单管理</title>
     <script src="<%= path%>/js/jquery-3.3.1.min.js"></script>
-    <script src="<%= path%>/js/bootstrap.js"></script>
-    <script src="<%= path%>/js/popper.min.js"></script>
-    <link type="text/css" rel="stylesheet" href="<%= path%>/css/bootstrap.min.css">
+    <script src="<%= path%>/bootstrap4/bootstrap.min.js"></script>
+    <script src="<%= path%>/bootstrap4/bootstrap.bundle.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="<%= path%>/bootstrap4/bootstrap.min.css">
+    <script src="<%= path%>/bill/js/billJS.js"></script>
 </head>
+<style>
+    .spanSplit{
+        color: #2aabd2;
+    }
+</style>
 <body>
-
-<script>
-    $(document).ready(function () {
-    <%--    var data = JSON.parse('{"Integer":2}');--%>
-    <%--    console.log(data);--%>
-    <%--    $("#btn").click(function () {--%>
-    <%--        $.ajax({--%>
-    <%--            type:"POST",--%>
-    <%--            url:"<%=path%>/BillAction_getBill",--%>
-    <%--            datatype:"json",--%>
-    <%--            data:data,--%>
-    <%--            success:function () {--%>
-
-    <%--            }--%>
-    <%--        })--%>
-    <%--    });--%>
-    <%--});--%>
-</script>
-
+<input id="ContextPath" type="hidden" value="<%=path%>">
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <ul class="navbar-nav">
         <li class="nav-item active">
             <a class="nav-link disabled" href="#">账单管理</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link disabled" href="#">nothing is true, everything is permitted</a>
+        <li>
+            <a class="nav-link" href="#" data-toggle="modal"
+               data-target="#addModal">添加账单</a>
         </li>
+        <li>
+            <a id="all" class="nav-link" href="#">全部账单</a>
+        </li>
+        <li>
+            <a id="byStatus" class="nav-link" href="#">未缴费账单</a>
+        </li>
+<%--        <li class="nav-item">--%>
+<%--            <a class="nav-link disabled" href="#">nothing is true, everything is permitted</a>--%>
+<%--        </li>--%>
     </ul>
 </nav>
 
 <table class="table table-striped">
     <thead>
     <tr>
-        <th>名称</th>
-        <th>城市</th>
-        <th>邮编</th>
+        <th>时间</th>
+        <th>姓名</th>
+        <th>类型</th>
+        <th>金额</th>
+        <th>状态</th>
+        <th>收费人编号</th>
+        <th>操作</th>
     </tr>
     </thead>
-    <tbody>
-    <tr>
-        <td>Tanmay</td>
-        <td>Bangalore</td>
-        <td>560001</td>
-    </tr>
-    <tr>
-        <td>Sachin</td>
-        <td>Mumbai</td>
-        <td>400003</td>
-    </tr>
-    <tr>
-        <td>Uma</td>
-        <td>Pune</td>
-        <td>411027</td>
-    </tr>
+    <tbody id="tbody">
     </tbody>
+
+    <div class="container">
+        <!-- 模态框 -->
+        <div class="modal fade" id="addModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <!-- 模态框头部 -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">添加账单</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <!-- 模态框主体 -->
+                    <div class="modal-body">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">居民编号</span>
+                            </div>
+                            <input id="save_residentId" type="text" class="form-control"
+                                   placeholder="00000">
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">账单类型</span>
+                            </div>
+                            <select id="save_billType" class="form-control">
+                                <option>电费</option>
+                                <option>水费</option>
+                                <option>维修费</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">金额</span>
+                            </div>
+                            <input id="save_billMoney" type="text" class="form-control"
+                                   placeholder="￥0.00">
+                        </div>
+
+
+                    </div>
+
+                    <!-- 模态框底部 -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" id="save"
+                                data-dismiss="modal">完成</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
 </table>
 
 

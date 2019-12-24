@@ -2,6 +2,7 @@ package service.impl;
 
 import dao.BillDao;
 import entity.TBillEntity;
+import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -27,6 +28,8 @@ public class BillServiceImpl implements BillService {
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public void update(TBillEntity entity) {
+        entity = billDao.findById(entity.getBillId());
+        entity.setBillStatus(1);
         billDao.update(entity);
     }
 
@@ -60,5 +63,10 @@ public class BillServiceImpl implements BillService {
         return billDao.findByTime(begin);
     }
 
+    @Transactional(propagation = Propagation.REQUIRED)
+    @Override
+    public List<TBillEntity> findByStatus(int status){
+        return billDao.findByStatus(status);
+    }
 
 }

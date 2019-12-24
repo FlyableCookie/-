@@ -41,42 +41,13 @@ public class BillTest {
         return billService.findAll();
     }
 
+    public List<TBillEntity> findByStatus(int status){
+        return billService.findByStatus(status);
+    }
+
     @Test
     public void test(){
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
         BillTest billTest = (BillTest) context.getBean("billTest");
-
-//        List<TBillEntity> billEntityList = billTest.findByTime(
-//                DateTool.strToSqlDate("2019-12-07", "yyyy-MM-dd"),
-//                DateTool.dateToSqlDate(new Date())
-//        );
-
-        List<TBillEntity> billEntityList = billTest.findAll();
-//
-////        List<TBillEntity> billEntityList = billTest.findByTime(
-////                DateTool.strToSqlDate("2019-12-01", "yyyy-MM-dd"));
-//
-        for (TBillEntity b : billEntityList){
-            System.out.println(b.toString());
-            System.out.println("ResidentName ===== "+b.getResidentsEntity().getResidentName());
-        }
-
-//        TBillEntity entity = new TBillEntity();
-//
-//        TResidentsEntity residentsEntity = new TResidentsEntity();
-////        residentsEntity.setResidentId(10000);
-////        residentsEntity.setResidentName("力宏");
-////        residentsEntity.setResidentSex("男");
-////        residentsEntity.setIdNumber("000001");
-////        residentsEntity.setPhoneNumber("111110");
-////        residentsEntity.setCheckinTime(DateTool.strToSqlDate("2019-12-06", "yyyy-MM-dd"));
-//
-//        entity.setBillType("水费");
-//        entity.setBillTime(DateTool.dateToSqlDate(new Date()));
-//        entity.setBillMoney(2000);
-//        entity.setResidentsEntity(residentsEntity);
-//
-//        billTest.save(entity);
-
     }
 }

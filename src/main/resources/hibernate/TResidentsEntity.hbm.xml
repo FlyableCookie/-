@@ -11,9 +11,9 @@
         <property name="idNumber" column="IdNumber"/>
         <property name="phoneNumber" column="PhoneNumber"/>
         <property name="checkinTime" column="CheckinTime"/>
-        <set name="billEntities" inverse="false">
-            <key column="ResidentID"/>
-            <one-to-many class="entity.TBillEntity"/>
-        </set>
+<!--        <set name="billEntities" inverse="false">-->
+<!--            <key column="ResidentID"/>-->
+<!--            <one-to-many class="entity.TBillEntity"/>-->
+<!--        </set>-->
     </class>
 </hibernate-mapping>
