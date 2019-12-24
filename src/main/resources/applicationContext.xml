@@ -12,7 +12,7 @@
         http://www.springframework.org/schema/aop/spring-aop.xsd
         http://www.springframework.org/schema/tx
         http://www.springframework.org/schema/tx/spring-tx.xsd">
-
+                                  
     <context:component-scan base-package="dao"/>
     <context:component-scan base-package="entity"/>
     <context:component-scan base-package="service"/>
@@ -25,7 +25,7 @@
         <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/cpms?useUnicode=true;characterEncoding=UTF-8"/>
         <property name="user" value="root"/>
     <!--需修改-->
-        <property name="password" value="czl990914."/>
+        <property name="password" value="wuhan990820"/>
     </bean>
 
     <!--注册SessionFactory  将hibernate交给Spring-->
@@ -65,6 +65,15 @@
 
 <!--    <import resource="Config_CZL/spring_czl.xml"/>-->
 
+<bean id="EmployeeDao" class="dao.impl.EmployeeDaoImpl">
+<property name="sessionFactory" ref="sessionFactory"></property>
+</bean>
 
+<bean id="EmployeeService" class="service.impl.EmployeeServiceImpl">
+<property name="EmplyeeDao" ref="EmplyeeDao"></property>
+</bean>
 
+<bean id="EmployeeAction" class="action.employee.EmployeeAction">
+<property name="EmployeeService" ref="EmployeeService"></property>
+</bean>
 </beans>
