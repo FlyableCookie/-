@@ -13,7 +13,7 @@
         http://www.springframework.org/schema/tx
         http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-    <context:component-scan base-package="dao.impl"/>
+    <context:component-scan base-package="dao"/>
     <context:component-scan base-package="entity"/>
     <context:component-scan base-package="service"/>
     <context:component-scan base-package="test"/>
@@ -29,7 +29,6 @@
     </bean>
 
     <!--注册SessionFactory  将hibernate交给Spring-->
-<!--    org.springframework.orm.hibernate5.LocalSessionFactoryBean-->
     <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <property name="mappingDirectoryLocations" value="classpath:hibernate"/>
@@ -41,7 +40,7 @@
 <!--        </property>-->
         <property name="hibernateProperties">
             <props>
-                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</prop>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
                 <prop key="hibernate.show_sql">true</prop>
                 <prop key="hibernate.format_sql">true</prop>
                 <prop key="hibernate.connection.autocommit">true</prop>
@@ -56,38 +55,38 @@
 
     <!-- 注解 -->
     <tx:annotation-driven transaction-manager="transactionManager"/>
-	
+
 	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate5.HibernateTemplate">
     	<property name="sessionFactory" ref="sessionFactory"></property>
     	<property name="checkWriteOperations"><value>false</value></property>
     </bean>
-    
+
     <!-- 用户登录部分 -->
     <bean id="userDao" class="dao.UserDao">
     	<property name="hibernateTemplate" ref="hibernateTemplate"></property>
     </bean>
-    
+
     <bean id="userService" class="service.UserService">
     	<property name="userDao" ref="userDao"></property>
     </bean>
-    
+
     <bean id="loginAction" class="action.user.LoginAction" scope="prototype">
     	<property name="userService" ref="userService"></property>
     </bean>
-    
+
     <bean id="registerAction" class="action.user.RegisterAction" scope="prototype">
     	<property name="userService" ref="userService"></property>
     </bean>
-	
+
 	<!-- 公告部分 -->
 	<bean id="announDao" class="dao.AnnounDao">
     	<property name="hibernateTemplate" ref="hibernateTemplate"></property>
     </bean>
-    
+
     <bean id="announService" class="service.AnnounService">
     	<property name="announDao" ref="announDao"></property>
     </bean>
-    
+
     <bean id="announAction" class="action.announ.AnnounAction" scope="prototype">
     	<property name="announService" ref="announService"></property>
     </bean>
@@ -106,6 +105,15 @@
 
 <!--    <import resource="Config_CZL/spring_czl.xml"/>-->
 
+<bean id="EmployeeDao" class="dao.impl.EmployeeDaoImpl">
+<property name="sessionFactory" ref="sessionFactory"></property>
+</bean>
 
+<bean id="EmployeeService" class="service.impl.EmployeeServiceImpl">
+<property name="EmplyeeDao" ref="EmplyeeDao"></property>
+</bean>
 
+<bean id="EmployeeAction" class="action.employee.EmployeeAction">
+<property name="EmployeeService" ref="EmployeeService"></property>
+</bean>
 </beans>
