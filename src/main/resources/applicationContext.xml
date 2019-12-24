@@ -22,10 +22,10 @@
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
         <property name="driverClass" value="com.mysql.cj.jdbc.Driver"/>
 
-        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/cpms?useUnicode=true;characterEncoding=UTF-8;serverTimezone=GMT%2B8"/>
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/cpms?useUnicode=true;characterEncoding=GB2312&amp;serverTimezone=UTC"/>
         <property name="user" value="root"/>
     <!--需修改-->
-        <property name="password" value="czl990914."/>
+        <property name="password" value="1234"/>
     </bean>
 
     <!--注册SessionFactory  将hibernate交给Spring-->
@@ -55,7 +55,41 @@
 
     <!-- 注解 -->
     <tx:annotation-driven transaction-manager="transactionManager"/>
-
+	
+	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate5.HibernateTemplate">
+    	<property name="sessionFactory" ref="sessionFactory"></property>
+    	<property name="checkWriteOperations"><value>false</value></property>
+    </bean>
+    
+    <!-- 用户登录部分 -->
+    <bean id="userDao" class="dao.UserDao">
+    	<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+    </bean>
+    
+    <bean id="userService" class="service.UserService">
+    	<property name="userDao" ref="userDao"></property>
+    </bean>
+    
+    <bean id="loginAction" class="action.user.LoginAction" scope="prototype">
+    	<property name="userService" ref="userService"></property>
+    </bean>
+    
+    <bean id="registerAction" class="action.user.RegisterAction" scope="prototype">
+    	<property name="userService" ref="userService"></property>
+    </bean>
+	
+	<!-- 公告部分 -->
+	<bean id="announDao" class="dao.AnnounDao">
+    	<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+    </bean>
+    
+    <bean id="announService" class="service.AnnounService">
+    	<property name="announDao" ref="announDao"></property>
+    </bean>
+    
+    <bean id="announAction" class="action.announ.AnnounAction" scope="prototype">
+    	<property name="announService" ref="announService"></property>
+    </bean>
     <!-- 配置方法 -->
 <!--    <tx:advice id="txAdvice" transaction-manager="transactionManager">-->
 <!--        <tx:attributes>-->
