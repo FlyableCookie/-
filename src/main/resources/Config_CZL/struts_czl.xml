@@ -46,17 +46,16 @@
 <!--            </exception-mapping>-->
             <allowed-methods>saveBill,updateBill,deleteBill</allowed-methods>
         </action>
-    </package>
 
-    <package name="repair" namespace="/" extends="struts-default,json-default">
-        <default-class-ref class="action.repair.RepairAction"/>
-        <action name="RepairAction_*" method="{1}">
-            <result name="success" type="json">
-                <param name="root">repairEntityList</param>
-            </result>
-            <allowed-methods>getRepair,getRepairList</allowed-methods>
+
+        <action name="jump2*" method="{1}" class="action.main.main">
+            <result name="room" type="chain">roomlist</result>
+            <result name="bill" type="chain">bill</result>
+            <!--            <result name="employee"></result>-->
+            <!--            <result name="notice"></result>-->
+            <!--            <result name="resident"></result>-->
+            <allowed-methods>room,bill,employee,notice,resident</allowed-methods>
         </action>
-
     </package>
 
 </struts>

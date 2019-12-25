@@ -7,7 +7,7 @@
 <struts>
     <package name="default" namespace="/" extends="struts-default">
     	<global-allowed-methods>regex:.*</global-allowed-methods>
-    	<action name="emp_*" class="EmployeeAction" method="{1}">
+    	<action name="emp_*" class="action.employee.EmployeeAction" method="{1}">
     		<result name="list">/employee/Empquery.jsp</result>
     		<result name="input">/employee/Empsave.jsp</result>
     	</action>

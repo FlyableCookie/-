@@ -17,6 +17,7 @@
     <context:component-scan base-package="entity"/>
     <context:component-scan base-package="service"/>
     <context:component-scan base-package="test"/>
+    <context:component-scan base-package="com.zxy.*"/>
 
     <!--注册c3p0数据源-->
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
@@ -45,6 +46,12 @@
                 <prop key="hibernate.format_sql">true</prop>
                 <prop key="hibernate.connection.autocommit">true</prop>
             </props>
+        </property>
+
+        <property name="packagesToScan">
+            <list>
+                <value>com.zxy.entity</value>
+            </list>
         </property>
     </bean>
 
@@ -104,16 +111,4 @@
 <!--    </aop:config>-->
 
 <!--    <import resource="Config_CZL/spring_czl.xml"/>-->
-
-<bean id="EmployeeDao" class="dao.impl.EmployeeDaoImpl">
-<property name="sessionFactory" ref="sessionFactory"></property>
-</bean>
-
-<bean id="EmployeeService" class="service.impl.EmployeeServiceImpl">
-<property name="EmplyeeDao" ref="EmplyeeDao"></property>
-</bean>
-
-<bean id="EmployeeAction" class="action.employee.EmployeeAction">
-<property name="EmployeeService" ref="EmployeeService"></property>
-</bean>
 </beans>

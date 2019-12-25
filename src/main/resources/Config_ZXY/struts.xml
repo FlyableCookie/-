@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <constant name="struts.devMode" value="false"/>
+    <constant name="struts.objectFactory" value="spring" />
+
+    <package name="room" namespace="/" extends="struts-default">
+        <action name="roomlist" class="roomAction" method="getAllRoom">
+            <result name="UserList">/Room/list.jsp</result>
+            <result name="error">/Room/error.jsp</result>
+    </action>
+        <action name="addPage" class="roomAction" method="toAddPage">
+            <result name="addPage">/Room/add.jsp</result>
+            <result name="error">/Room/error.jsp</result>
+        </action>
+        <action name="add" class="roomAction" method="save">
+            <!-- Action 跳转请求 Action -->
+            <result name="adduser" type="chain">roomlist</result>
+            <result name="error">/Room/error.jsp</result>
+            <result name="input">/Room/add.jsp</result>
+        </action>
+        <action name="upt" class="roomAction" method="update">
+            <result name="update" type="chain">roomlist</result>
+            <result name="error">/Room/error.jsp</result>
+            <result name="input">/Room/update.jsp</result>
+        </action>
+        <action name="del" class="roomAction" method="delete">
+            <result name="deluser" type="chain">roomlist</result>
+            <result name="error">/Room/error.jsp</result>
+        </action>
+        <action name="uptPage" class="roomAction" method="toUptPage">
+            <result name="uptPage">/Room/update.jsp</result>
+            <result name="error">/Room/error.jsp</result>
+
+        </action>
+
+
+    </package>
+</struts>

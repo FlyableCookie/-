@@ -8,4 +8,5 @@
     <include file="Config_CZL/struts_czl.xml"/>
     <include file="Config_DZG/struts_dzg.xml"/>
     <include file="Config_WH/struts_wh.xml"/>
+    <include file="Config_ZXY/struts.xml"/>
 </struts>
