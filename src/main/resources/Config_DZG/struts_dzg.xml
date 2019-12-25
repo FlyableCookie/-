@@ -1,15 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
-        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
 <struts>
-	<package name="demo" namespace="/" extends="struts-default">
+	<constant name="struts.i18n.encoding" value="utf-8"/>
+	<constant name="struts.enable.DynamicMethodInvocation" value="true"/>
+	<package name="demo" namespace="/" extends="struts-default">	
+		
+		<!-- 声明登录拦截器和公告拦截器 -->
+		<interceptors>
+			<!-- 登录拦截器 -->
+			<interceptor name="loginintercept" class="intercept.LoginIntercept">
+				<!-- 对登录操作不进行拦截 -->
+				<param name="excludeMethods">loginAction</param>
+			</interceptor>
+			
+			<!-- 公告拦截器 -->
+			<interceptor name="announintercept" class="intercept.AnnounIntercept">
+				<!-- 对查看操作不进行拦截 -->
+				<param name="excludeMethods">getAll,findLike,Check</param>
+			</interceptor>
+			
+			<!-- 定义拦截器栈，用于登陆后的操作判定顺序 -->
+			<interceptor-stack name="AllInterceptor">
+                <interceptor-ref name="loginintercept"></interceptor-ref>
+                <interceptor-ref name="announintercept"></interceptor-ref>
+                <interceptor-ref name="defaultStack"></interceptor-ref>
+            </interceptor-stack>
+		</interceptors>
+		
+		<!-- 声明存在顺序，全局返回值在拦截器之后 -->
+		<!-- 定义全局返回结果 -->
+		<global-results>
+            <result name="login">/index.jsp</result>
+        </global-results>
+        
+		<!-- 登录操作 -->
 		<action name="loginAction" class="loginAction">
-			<result name="success">/loginSuccess.jsp</result>
-			<result name="input">/login.jsp</result>
+			<result name="loginsuccess">/success.jsp</result>
+			<result name="loginfalse">/index.jsp</result>
 		</action>
-		<!-- <action name="registerAction" class="registerAction">
-			<result name="success">/register.jsp</result>
-			<result name="input">/register.jsp</result>
-		</action> -->
+		
+		<!-- 注册操作 -->
+		<action name="registerAction" class="registerAction">
+			<result name="registersuccess">/index.jsp</result>
+			<result name="registerfalse">/register.jsp</result>
+		</action>
+		
+		<!-- 公告操作 -->
+		<action name="announ_*" class="announAction" method="{1}">
+			<interceptor-ref name="AllInterceptor"></interceptor-ref>
+            <result name="getAll">/announ/announ_list.jsp</result>
+            <result name="Addfalse">/announ/announ_add.jsp</result>
+            <result name="Addsuccess">/announ/announ_add.jsp</result>
+            <result name="Delfalse" type="redirectAction">announ_getAll.action</result>
+            <result name="Delsuccess" type="redirectAction">announ_getAll.action</result>
+            <result name="findLike">/announ/announ_list.jsp</result>
+            <result name="Checksuccess">/announ/announ_check.jsp</result>
+            <allowed-methods>addNew,Delete,Check,getAll,findLike</allowed-methods>
+        </action>
+        
 	</package>
 </struts>

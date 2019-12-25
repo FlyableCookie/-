@@ -82,16 +82,16 @@ public class RegisterAction extends ActionSupport {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		super.clearErrorsAndMessages();
 		if("".equals(userName) || userName == null) {
-			addActionError("�û�������Ϊ�գ�");
-			return "false";
+			addActionError("用户名不能为空！");
+			return "registerfalse";
 		}
 		if("".equals(userPwd) || userPwd == null || "".equals(reUserPwd) || reUserPwd == null) {
-			addActionError("���벻��Ϊ�գ�");
-			return "false";
+			addActionError("密码不能为空！");
+			return "registerfalse";
 		}
 		if(!userPwd.equals(reUserPwd)) {
-			addActionError("�������벻һ�£�");
-			return "false";
+			addActionError("两次密码不一致！");
+			return "registerfalse";
 		}
 		TUsersEntity user = new TUsersEntity(); 
 		user.setUserName(userName);
@@ -100,11 +100,11 @@ public class RegisterAction extends ActionSupport {
 		user.setAssociatedId(associatedId);
 		user.setCreateDate(new Timestamp(new Date().getTime()));
 		if(userService.userRegister(user)) {
-			super.addActionMessage("ע��ɹ���");
+			super.addActionMessage("注册成功！");
 		} else {
-			super.addActionError("ע��ʧ��,���û����Ѵ��ڻ������Ų����ڣ�");
-			return "false";
+			super.addActionError("注册失败,该用户名已存在或关联编号不存在！");
+			return "registerfalse";
 		}
-		return "success";
+		return "registersuccess";
 	}
 }

@@ -17,6 +17,7 @@ window.onload = function(){
 </script>
 </head>
 <body class="back">
+	<div class="border">
 	<div class="find">
 		<div>
 		<form method="post" name="form" action="${pageContext.request.contextPath}/announ_findLike.action">
@@ -65,6 +66,7 @@ window.onload = function(){
 		</tbody>
 		</table>
 		<div class="bottom"></div>
+		</div>
   </body>
 <%--   
 		<script>

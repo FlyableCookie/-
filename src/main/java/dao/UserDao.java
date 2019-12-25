@@ -44,11 +44,11 @@ public class UserDao {
 		//查询普通居民关联编号
 		List<T> list = new ArrayList<T>();
 		if(usertype.equals("0")) {
-			list = (List<T>) hibernateTemplate.find("from TResidentsEntity where residentId=?", associate);
+			list = (List<T>) hibernateTemplate.find("from TResidentsEntity where residentId='"+associate+"'");
 		}
 		//查询业务管理员关联编号
 		else if(usertype.equals("1")) {
-			list = (List<T>) hibernateTemplate.find("from TEmployeeEntity where residentId=?", associate);
+			list = (List<T>) hibernateTemplate.find("from TEmployeeEntity where residentId='"+associate+"'");
 		}
 		return list.isEmpty() ? false:true;
 	}

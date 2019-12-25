@@ -1,7 +1,6 @@
 package dao;
 
 import java.util.List;
-
 import org.springframework.orm.hibernate5.HibernateTemplate;
 import entity.TEmployeeEntity;
 import entity.TUsersEntity;
@@ -16,7 +15,6 @@ public class AnnounDao {
 	//执行添加新公告
 	public boolean addAnnoun(TAnnounEntity announ) {
 		if(verifyEmployee(announ.getEmployeeID())) { 
-			System.out.println("111");
 			System.out.println(announ.getAnnounTitle());
 			System.out.println(announ.getAnnounContent());
 			System.out.println(announ.getAnnounTime());
@@ -29,13 +27,13 @@ public class AnnounDao {
 	
 	//获取当前登录用户的关联编号
 	public int associateID(String username, String usertype) {
-		List<TUsersEntity> users = (List<TUsersEntity>) hibernateTemplate.find("from TUsersEntity where userName=? and userType=?", username, usertype);
+		List<TUsersEntity> users = (List<TUsersEntity>) hibernateTemplate.find("from TUsersEntity where userName='"+username+"' and userType='"+usertype+"'");
 		return users.get(0).getAssociatedId();
 	}
 	
 	//判断物业管理员是否存在
 	public boolean verifyEmployee(int employeeId) {
-		List<TEmployeeEntity> employee = (List<TEmployeeEntity>) hibernateTemplate.find("from TEmployeeEntity where employeeId=?", employeeId);
+		List<TEmployeeEntity> employee = (List<TEmployeeEntity>) hibernateTemplate.find("from TEmployeeEntity where employeeId='"+employeeId+"'");
 		return employee.isEmpty() ? false:true;
 	}
 	
@@ -47,13 +45,13 @@ public class AnnounDao {
 	
 	//根据ID编号获取物业消息
 	public List<TAnnounEntity> getAnnoun(int announId) {
-		List<TAnnounEntity> announ = (List<TAnnounEntity>) hibernateTemplate.find("from TAnnounEntity where announId=?", announId);
+		List<TAnnounEntity> announ = (List<TAnnounEntity>) hibernateTemplate.find("from TAnnounEntity where announId='"+announId+"'");
 		return announ;
 	}
 	
 	//根据物业标题进行类查询
 	public List<TAnnounEntity> likeAnnoun(String titleLike) {
-		List<TAnnounEntity> likeannoun = (List<TAnnounEntity>) hibernateTemplate.find("from TAnnounEntity where announTitle like ?", "%"+titleLike+"%");
+		List<TAnnounEntity> likeannoun = (List<TAnnounEntity>) hibernateTemplate.find("from TAnnounEntity where announTitle like '%"+titleLike+"%'");
 		return likeannoun;
 	}
 	

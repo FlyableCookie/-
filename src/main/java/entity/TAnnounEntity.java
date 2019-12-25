@@ -1,6 +1,9 @@
 package entity;
 
 import javax.persistence.*;
+
+import org.hibernate.annotations.GenericGenerator;
+
 import java.sql.Timestamp;
 
 @Entity
@@ -11,16 +14,6 @@ public class TAnnounEntity {
     private String announContent;
     private Timestamp announTime;
     private int employeeID;
-
-    @Basic
-    @Column(name = "EmployeeID")
-    public int getEmployeeID() {
-        return employeeID;
-    }
-
-    public void setEmployeeID(int employeeID) {
-        this.employeeID = employeeID;
-    }
 
     @Id
     @Column(name = "AnnounID")
@@ -61,6 +54,16 @@ public class TAnnounEntity {
     public void setAnnounTime(Timestamp announTime) {
         this.announTime = announTime;
     }
+    
+    @Basic
+    @Column(name = "EmployeeID")
+    public int getEmployeeID() {
+        return employeeID;
+    }
+
+    public void setEmployeeID(int employeeID) {
+        this.employeeID = employeeID;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -70,6 +73,7 @@ public class TAnnounEntity {
         TAnnounEntity that = (TAnnounEntity) o;
 
         if (announId != that.announId) return false;
+        if (employeeID != that.employeeID) return false;
         if (announTitle != null ? !announTitle.equals(that.announTitle) : that.announTitle != null) return false;
         if (announContent != null ? !announContent.equals(that.announContent) : that.announContent != null)
             return false;
@@ -84,6 +88,7 @@ public class TAnnounEntity {
         result = 31 * result + (announTitle != null ? announTitle.hashCode() : 0);
         result = 31 * result + (announContent != null ? announContent.hashCode() : 0);
         result = 31 * result + (announTime != null ? announTime.hashCode() : 0);
+        result = 31 * result + employeeID;
         return result;
     }
 }

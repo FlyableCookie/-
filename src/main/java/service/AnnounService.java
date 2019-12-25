@@ -26,34 +26,34 @@ public class AnnounService {
 		this.announDao = announDao;
 	}
 	
-	//»ñÈ¡È«²¿¹«¸æÁĞ±í
+	//ï¿½ï¿½È¡È«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ±ï¿½
 	public List<TAnnounEntity> getAll() {
 		List<TAnnounEntity> announ =  announDao.theAll();
 		return announ;
 	}
 	
-	//½øĞĞÀà²éÑ¯
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¯
 	public List<TAnnounEntity> getLike(String titleLike) {
 		List<TAnnounEntity> likeannoun =  announDao.likeAnnoun(titleLike);
 		return likeannoun;
 	}
 	
-	//ĞÂÔö¹«¸æĞÅÏ¢
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 	public boolean addNew(TAnnounEntity announ) {
 		if(announDao.addAnnoun(announ)) {
-			System.out.println("222");
 			return true;
 		}
 		return false;
 	}
 	
-	//»ñÈ¡¹ØÁª±àºÅ
+	//ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	public int theID(String username) {
 		int theID = announDao.associateID(username, "1");
+		System.out.println("æœåŠ¡å±‚æ‰¾åˆ°çš„ï¼š"+theID);
 		return theID;
 	}
 	
-	//Ö´ĞĞÉ¾³ı
+	//Ö´ï¿½ï¿½É¾ï¿½ï¿½
 	public boolean delete(int announId) {
 		if(announDao.getAnnoun(announId).isEmpty()) {
 			return false;
@@ -62,7 +62,7 @@ public class AnnounService {
 		return true;
 	}
 	
-	//ÄÃµ½Ïà¹Ø±àºÅÎïÒµ¹«¸æµÄĞÅÏ¢
+	//ï¿½Ãµï¿½ï¿½ï¿½Ø±ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 	public TAnnounEntity getOne(int announId) {
 		return announDao.getAnnoun(announId).get(0);
 	}
