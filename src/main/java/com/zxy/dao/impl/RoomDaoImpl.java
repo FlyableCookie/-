@@ -33,8 +33,8 @@ public class RoomDaoImpl implements RoomDao {
 
     @Override
     public void update(Room room) {
-
-        this.sessionFactory.getCurrentSession().createSQLQuery("update Room set apartment='"+room.getApartment()+"', phoneno='"+room.getPhoneno()+"', location='"+room.getLocation()+"', username='"+room.getUsername()+"' where location='"+room.getLocation()+"'").executeUpdate();
+        //apartment='"+room.getApartment()+"',
+        this.sessionFactory.getCurrentSession().createSQLQuery("update Room set  phoneno='"+room.getPhoneno()+"', location='"+room.getLocation()+"', username='"+room.getUsername()+"' where location='"+room.getLocation()+"'").executeUpdate();
 
     }
 

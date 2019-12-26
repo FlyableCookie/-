@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<constant name="struts.i18n.encoding" value="UTF-8"/>
+	<constant name="struts.enable.DynamicMethodInvocation" value="true"/>
+	<package name="demo1" namespace="/" extends="struts-default">
+		
+		<!-- 声明登录拦截器 -->
+		<interceptors>
+			<!-- 登录拦截器 -->
+			<interceptor name="loginintercept" class="intercept.LoginIntercept">
+				<!-- 对登录操作不进行拦截 -->
+				<param name="excludeMethods">loginAction</param>
+			</interceptor>
+			
+			
+			<!-- 定义拦截器栈，用于登陆后的操作判定顺序 -->
+			<interceptor-stack name="AllInterceptor">
+                <interceptor-ref name="loginintercept"/>
+<!--                <interceptor-ref name="announintercept"></interceptor-ref>-->
+                <interceptor-ref name="defaultStack"/>
+            </interceptor-stack>
+		</interceptors>
+
+		<action name="resident_*" class="residentAction" method="{1}">
+			<interceptor-ref name="AllInterceptor"/>
+            <result name="getAll">/resident/resident_list.jsp</result>
+            <result name="Addfalse">/resident/resident_add.jsp</result>
+            <result name="Addsuccess">/resident/resident_add.jsp</result>
+            <result name="Delfalse" type="redirectAction">resident_getAll.action</result>
+            <result name="Delsuccess" type="redirectAction">resident_getAll.action</result>
+            <result name="findLike">/resident/resident_list.jsp</result>
+            <result name="Checksuccess">/resident/resident_check.jsp</result>
+            <allowed-methods>addNew,Delete,Check,getAll,findLike</allowed-methods>
+        </action>
+        
+	</package>
+</struts>

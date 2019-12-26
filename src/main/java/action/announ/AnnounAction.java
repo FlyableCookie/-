@@ -31,7 +31,7 @@ public class AnnounAction extends ActionSupport{
 	public void setAnnoun(List<TAnnounEntity> announ){
 		this.announ = announ;
 	}
-	//��get����������action�л�ȡֵջ
+	//??get??????????action???????
 	public List<TAnnounEntity> getAnnoun() {
 		return announ;
 	}
@@ -76,30 +76,30 @@ public class AnnounAction extends ActionSupport{
 		this.employeeID = employeeID;
 	}
 
-	//��ȡ����������
+	//?????????????
 	public String getAll() {
 		announ = announService.getAll();
         return "getAll";
     }
 	
-	//��ȡ��ѯ��Ϣ��ص�����
+	//?????????????????
 	public String findLike() {
 		announ = announService.getLike(announTitle);
         return "findLike";
     }
 	
-	//����µĹ�����Ϣ
+	//????????????
 	public String addNew() {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		HttpServletRequest request=ServletActionContext.getRequest();
 		String userName = (String) request.getSession().getAttribute("userName");
 		super.clearErrorsAndMessages();
 		if("".equals(announTitle) || announTitle == null) {
-			addActionError("������ⲻ��Ϊ��");
+			addActionError("????????????");
 			return "Addfalse";
 		}
 		if("".equals(announContent) || announContent == null) {
-			addActionError("�������ݲ���Ϊ��");
+			addActionError("??????????????");
 			return "Addfalse";
 		}
 		TAnnounEntity announEntity = new TAnnounEntity();
@@ -110,21 +110,21 @@ public class AnnounAction extends ActionSupport{
 		if(announService.addNew(announEntity)){
 			return "Addsuccess";
 		} else {
-			addActionError("����ʧ��");
+			addActionError("???????");
 			return "Addfalse";
 		}
 	}
 	
-	//ɾ������
+	//???????
 	public String Delete() {
 		if(announService.delete(announId)) {
 			return "Delsuccess";
 		}
-		addActionError("ɾ��ʧ��");
+		addActionError("??????");
 		return "Delfalse";
 	}
 	
-	//�鿴����
+	//??????
 	public String Check() {
 		TAnnounEntity announEntity = new TAnnounEntity();
 		announEntity = announService.getOne(announId);

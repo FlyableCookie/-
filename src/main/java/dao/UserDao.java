@@ -48,7 +48,7 @@ public class UserDao {
 		}
 		//查询业务管理员关联编号
 		else if(usertype.equals("1")) {
-			list = (List<T>) hibernateTemplate.find("from TEmployeeEntity where residentId='"+associate+"'");
+			list = (List<T>) hibernateTemplate.find("from TEmployeeEntity where employeeId='"+associate+"'");
 		}
 		return list.isEmpty() ? false:true;
 	}

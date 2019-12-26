@@ -51,9 +51,9 @@
         <action name="jump2*" method="{1}" class="action.main.main">
             <result name="room" type="chain">roomlist</result>
             <result name="bill" type="chain">bill</result>
-            <!--            <result name="employee"></result>-->
-            <!--            <result name="notice"></result>-->
-            <!--            <result name="resident"></result>-->
+            <result name="employee" type="chain">emp_getEntityList</result>
+            <result name="notice" type="chain">announ_getAll</result>
+            <result name="resident" type="chain">resident_getAll</result>
             <allowed-methods>room,bill,employee,notice,resident</allowed-methods>
         </action>
     </package>

@@ -25,7 +25,7 @@ public interface RoomDao {
     public List getRoom();
 
     /**
-     * 根据用户Id获取用户信息
+     * 获取用户信息
 
      * @param username
      * @return
@@ -38,7 +38,7 @@ public interface RoomDao {
     public void update(Room room);
 
     /**
-     * 根据用户id删除用户idusername
+     * 删除用户username
      */
     public void delete(String username);
 

@@ -14,6 +14,8 @@ import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.ServletActionContext;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.StringUtils;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -84,6 +86,40 @@ public class RoomAction extends ActionSupport implements ModelDriven<Room> {
                 "11111111111111111");
         session.put("userlist1",list1);
         return "uptPage";
+    }
+    public void validateUpdate(){
+        if(StringUtils.isEmpty(room.getUsername())){
+            addFieldError("username", "业主名不能为空");
+        }
+        for (int i = room.getPhoneno().length();--i>=0;){
+            if (!Character.isDigit(room.getPhoneno().charAt(i))){
+                addFieldError("username", "电话号码错误");
+            }
+        }
+        if(room.getPhoneno().length()!=11){
+            addFieldError("username", "电话号码错误");
+        }
+    }
+    public void validateSave(){
+        for (int i = room.getPhoneno().length();--i>=0;){
+            if (!Character.isDigit(room.getPhoneno().charAt(i))){
+                addFieldError("username", "电话号码错误");
+            }
+        }
+        if(StringUtils.isEmpty(room.getUsername())){
+            addFieldError("username", "业主名不能为空");
+        }
+        if(StringUtils.isEmpty(room.getLocation())){
+            addFieldError("username", "具体位置不能为空");
+        }
+
+        if(room.getPhoneno().length()!=11){
+            addFieldError("username", "电话号码错误");
+        }
+        if(StringUtils.isEmpty(room.getApartment())){
+            addFieldError("username", "户型不能为空");
+        }
+
     }
     public String save(){
         try {

@@ -26,7 +26,7 @@
         <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/cpms?useUnicode=true;characterEncoding=GB2312&amp;serverTimezone=UTC"/>
         <property name="user" value="root"/>
     <!--需修改-->
-        <property name="password" value="wuhan990820"/>
+        <property name="password" value="czl990914."/>
     </bean>
 
     <!--注册SessionFactory  将hibernate交给Spring-->
@@ -110,19 +110,15 @@
 <!--        <aop:advisor advice-ref="txAdvice" pointcut-ref="serviceMethods"/>-->
 <!--    </aop:config>-->
 
-<!--    <import resource="Config_CZL/spring_czl.xml"/>-->
+    <bean id="residentDao" class="dao.ResidentDao">
+        <property name="hibernateTemplate" ref="hibernateTemplate"></property>
+    </bean>
 
-<!-- 
-<bean id="EmployeeDao" class="dao.impl.EmployeeDaoImpl">
-<property name="sessionFactory" ref="sessionFactory"></property>
-</bean>
+    <bean id="residentService" class="service.ResidentService">
+        <property name="residentDao" ref="residentDao"></property>
+    </bean>
 
-<bean id="EmployeeService" class="service.impl.EmployeeServiceImpl">
-<property name="EmplyeeDao" ref="EmplyeeDao"></property>
-</bean>
-
-<bean id="EmployeeAction" class="action.employee.EmployeeAction">
-<property name="EmployeeService" ref="EmployeeService"></property>
-</bean>
- -->
+    <bean id="residentAction" class="action.resident.ResidentAction" scope="prototype">
+        <property name="residentService" ref="residentService"></property>
+    </bean>
 </beans>
