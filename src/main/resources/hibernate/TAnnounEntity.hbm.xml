@@ -9,5 +9,6 @@
         <property name="announTitle" column="AnnounTitle"/>
         <property name="announContent" column="AnnounContent"/>
         <property name="announTime" column="AnnounTime"/>
+        <property name="employeeID" column="EmployeeID"/>
     </class>
 </hibernate-mapping>
