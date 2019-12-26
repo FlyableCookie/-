@@ -14,10 +14,10 @@
 	<form action="${pageContext.request.contextPath}/resident_addNew" name="form" method="post">
 	<table class="table" >
 		<span style="color:red"><s:actionerror/></span>
-		<tr>
+		<!-- <tr>
 			<td class='leftFont1'>居&nbsp;民&nbsp;编&nbsp;号:</td><td>
 			<input type='text' name='residentID' class="in"></td>
-		</tr>
+		</tr> -->
 		<tr>
 			<td class='leftFont1'>居&nbsp;民&nbsp;姓&nbsp;名:</td><td>
 			<input type='text' name='residentName' class="in"></td>
@@ -34,10 +34,10 @@
 			<td class='leftFont1'>居&nbsp;民&nbsp;手&nbsp;机&nbsp;号:</td><td>
 			<input type='text' name='PhoneNumber' class="in"></td>
 		</tr>
-		<tr>
+		<!-- <tr>
 			<td class='leftFont1'>入&nbsp;住&nbsp;日&nbsp;期:</td><td>
 			<input type='text' name='CheckinTime' class="in"></td>
-		</tr>
+		</tr> -->
 		
 		<tr>
 			<td align="center" colspan="2">

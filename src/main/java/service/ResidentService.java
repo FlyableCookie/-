@@ -37,16 +37,12 @@ public class ResidentService {
 	}
 	
 	public boolean addNew(TResidentsEntity resident) {
+		System.out.println("222");
 		if(residentDao.addResident(resident)) {
+			System.out.println("333");
 			return true;
 		}
 		return false;
-	}
-	
-	public int theID(String username) {
-		int theID = residentDao.associateID(username, "1");
-		System.out.println("服务层找到的："+theID);
-		return theID;
 	}
 	
 	public boolean delete(int residentId) {

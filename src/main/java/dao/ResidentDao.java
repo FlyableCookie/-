@@ -14,8 +14,6 @@ public class ResidentDao {
 	
 	//添加居民
 	public boolean addResident(TResidentsEntity resident) {
-		
-		System.out.println(resident.getResidentId());
 		System.out.println(resident.getResidentName());
 		System.out.println(resident.getResidentSex());
 		System.out.println(resident.getIdNumber());
@@ -23,12 +21,6 @@ public class ResidentDao {
 		System.out.println(resident.getCheckinTime());
 		hibernateTemplate.save(resident);
 		return true;
-	}
-	
-	//获取当前登录用户的关联编号
-	public int associateID(String username, String usertype) {
-		List<TUsersEntity> users = (List<TUsersEntity>) hibernateTemplate.find("from TUsersEntity where userName='"+username+"' and userType='"+usertype+"'");
-		return users.get(0).getAssociatedId();
 	}
 	
 	//获取所有的居民信息

@@ -1,45 +1,47 @@
-<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="GB2312"%> 
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%> 
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=GB18030">
-<title>¾ÓÃñĞÅÏ¢Ò³Ãæ</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>å±…æ°‘ä¿¡æ¯é¡µé¢</title>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/MYCSS/table.css">
 <script src="./js/jquery-3.2.1.min.js"></script>
 </head>
 <body class="back">
-	<div class='headFont'>²é¿´¾ÓÃñĞÅÏ¢</div>
+	<div class='headFont'>æŸ¥çœ‹å±…æ°‘ä¿¡æ¯</div>
 	<div class="border">
 	<form>
 	<table class="table" >
 		<tr>
-			<td class='leftFont1'>¾Ó&nbsp;Ãñ&nbsp;±à&nbsp;ºÅ:</td><td>
+			<td class='leftFont1'>å±…&nbsp;æ°‘&nbsp;ç¼–&nbsp;å·:</td><td>
 			<input type='text' name='residentID' class="in" value="<s:property value='residentID'/>"></td>
 		</tr>
 		<tr>
-			<td class='leftFont1'>¾Ó&nbsp;Ãñ&nbsp;ĞÕ&nbsp;Ãû:</td><td>
+			<td class='leftFont1'>å±…&nbsp;æ°‘&nbsp;å§“&nbsp;å:</td><td>
 			<input type='text' name='residentName' class="in" value="<s:property value='residentName'/>"></td>
 		</tr>
 		<tr>
-			<td class='leftFont1'>¾Ó&nbsp;Ãñ&nbsp;ĞÔ&nbsp;±ğ:</td><td>
+			<td class='leftFont1'>å±…&nbsp;æ°‘&nbsp;æ€§&nbsp;åˆ«:</td><td>
 			<input type='text' name='residentSex' class="in" value="<s:property value='residentSex'/>"></td>
 		</tr>
 		<tr>
-			<td class='leftFont1'>¾Ó&nbsp;Ãñ&nbsp;Éí&nbsp;·İ&nbsp;Ö¤&nbsp;ºÅ:</td><td>
+			<td class='leftFont1'>å±…&nbsp;æ°‘&nbsp;èº«&nbsp;ä»½&nbsp;è¯&nbsp;å·:</td><td>
 			<input type='text' name='IdNumber' class="in" value="<s:property value='IdNumber'/>"></td>
 		</tr>
 		<tr>
-			<td class='leftFont1'>¾Ó&nbsp;Ãñ&nbsp;ÊÖ&nbsp;»ú&nbsp;ºÅ:</td><td>
+			<td class='leftFont1'>å±…&nbsp;æ°‘&nbsp;æ‰‹&nbsp;æœº&nbsp;å·:</td><td>
 			<input type='text' name='PhoneNumber' class="in" value="<s:property value='PhoneNumber'/>"></td>
 		</tr>
 		<tr>
-			<td class='leftFont1'>Èë&nbsp;×¡&nbsp;ÈÕ&nbsp;ÆÚ:</td><td>
+			<td class='leftFont1'>å…¥&nbsp;ä½&nbsp;æ—¥&nbsp;æœŸ:</td><td>
 			<input type='text' name='CheckinTime' class="in" value="<s:property value='CheckinTime'/>"></td>
 		</tr>
 		<tr>
 			<td align="center" colspan="2">
-			<input type="button" name='return' value='·µ»ØÁĞ±í' class='button' onclick="window.location.href='${pageContext.request.contextPath}/resident_getAll.action'"></td>		
+			<input type="submit" name='submit' value='æäº¤' class='button'/>
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="button" name='return' value='è¿”å›åˆ—è¡¨' class='button' onclick="window.location.href='${pageContext.request.contextPath}/resident_getAll.action'"></td>		
 		</tr>
 	</table>
 	</form>

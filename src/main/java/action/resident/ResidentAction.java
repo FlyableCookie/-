@@ -99,8 +99,6 @@ public class ResidentAction extends ActionSupport{
 	
 
 	public String addNew() {
-		System.out.println("INTO:addNew");
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		HttpServletRequest request=ServletActionContext.getRequest();
 		String userName = (String) request.getSession().getAttribute("userName");
 		super.clearErrorsAndMessages();
@@ -126,9 +124,9 @@ public class ResidentAction extends ActionSupport{
 		residentEntity.setIdNumber(String.valueOf(IdNumber));
 		residentEntity.setPhoneNumber(String.valueOf(PhoneNumber));
 		residentEntity.setCheckinTime(new Timestamp(new Date().getTime()));
-		residentEntity.setResidentId(residentService.theID(userName));
+		System.out.println("111");
 		if(residentService.addNew(residentEntity)){
-			System.out.println("RETURN:SUCCESS");
+			System.out.println("444");
 			return "Addsuccess";
 		} else {
 			addActionError("添加失败");
@@ -137,6 +135,7 @@ public class ResidentAction extends ActionSupport{
 	}
 
 	public String Delete() {
+		System.out.println(residentId);
 		if(residentService.delete(residentId)) {
 			return "Delsuccess";
 		}
@@ -146,6 +145,7 @@ public class ResidentAction extends ActionSupport{
 	
 
 	public String Check() {
+		System.out.println(residentId);
 		TResidentsEntity residentEntity = new TResidentsEntity();
 		residentEntity = residentService.getOne(residentId);
 		residentName = residentEntity.getResidentName();

@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="GB2312"%> 
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="GB2312"%>
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -36,7 +36,7 @@ window.onload = function(){
 		<tr>
 			<td height="25" colspan="8" class="tb_showall" align="center">&nbsp;居民信息列表
 				<span style="color:red"><s:actionerror/></span>
-				<input type="submit" name="Delete" value="删 除" id="delAll" class="button3" />
+				<input type="submit" name="Delete" value="删 除" id="delAll" class="button3" oncick="window.location.href='${pageContext.request.contextPath}/resident_DelAll.action"/>
 				<input type="button" name="SelectAll" onclick="selectAll()" value="全 选"  id="select" class="button3"/>
 				<input type="submit" name="Submit" value="+ 新 增" class="button2" onclick="window.location.href='${pageContext.request.contextPath}/resident/resident_add.jsp'"/></td>
 		</tr>
@@ -54,14 +54,14 @@ window.onload = function(){
 		<s:iterator value="resident" var="resident">
         <tr class="td_2">
         	<td><input type="checkbox" name="check" id="check"></td>
-            <td><s:property value="#resident.residentID"/></td>
+            <td><s:property value="#resident.residentId"/></td>
             <td><s:property value="#resident.residentName"/></td>
             <td><s:property value="#resident.residentSex"/></td>
             <td><s:property value="#resident.IdNumber"/></td>
             <td><s:property value="#resident.PhoneNumber"/></td>
             <td><s:property value="#resident.CheckinTime"/></td>
-            <td><input type="button" class="button6" value="查  看" onclick="window.location.href='${pageContext.request.contextPath}/resident_Check.action?residentID=<s:property value='#resident.residentID'/>'">&nbsp;&nbsp;
-				<input type="button" class="button5" name="del" value="删  除" onclick="window.location.href='${pageContext.request.contextPath}/resident_Delete.action?residentID=<s:property value='#resident.residentID'/>'">
+            <td><input type="button" class="button6" value="查  看" onclick="window.location.href='${pageContext.request.contextPath}/resident_Check.action?residentId=<s:property value='#resident.residentId'/>'">&nbsp;&nbsp;
+				<input type="button" class="button5" name="del" value="删  除" onclick="window.location.href='${pageContext.request.contextPath}/resident_Delete.action?residentId=<s:property value='#resident.residentId'/>'">
 			</td>
         </tr>
     </s:iterator>
