@@ -5,6 +5,7 @@ import entity.TEmployeeEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import service.EmployeeService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class EmployeeAction extends ActionSupport {
@@ -17,13 +18,18 @@ public class EmployeeAction extends ActionSupport {
     private Integer integer;
     private int result;
 
-    public String getEmployee() throws Exception {
+
+	public String gotEmployee() throws Exception {
+		System.out.println(integer);
     	employeeEntity = employeeService.findById(integer);
-        if (employeeEntityList != null){
+    	System.out.println(employeeEntity.getEmployeeName());
+    	if (employeeEntityList == null){
+    		employeeEntityList = new ArrayList<>();
+        } else {
         	employeeEntityList.clear();
         }
         employeeEntityList.add(employeeEntity);
-        return SUCCESS;
+        return "getemp";
     }
 
     public String getEntityList() throws Exception {
@@ -41,7 +47,7 @@ public class EmployeeAction extends ActionSupport {
         return "FALSE";
     }
 
-    public String updateEntity() throws Exception {
+	public String updateEntity() throws Exception {
         result = 0;
         if (employeeEntity != null) {
         	employeeService.update(employeeEntity);
@@ -53,49 +59,53 @@ public class EmployeeAction extends ActionSupport {
     
     
     public String deleteEntity() throws Exception {
-        result = 0;
-        if (employeeEntity != null) {
         	employeeService.delete(integer);
-            result = 1;
             return "delete";
-        }
-        return "FALSE";
     }
+    
+    
+    public String tianjia() throws Exception {
+        return "tianjia";
+}
+    
+    public EmployeeService getEmployeeService() {
+		return employeeService;
+	}
 
+	public void setEmployeeService(EmployeeService employeeService) {
+		this.employeeService = employeeService;
+	}
 
+	public TEmployeeEntity getEmployeeEntity() {
+		return employeeEntity;
+	}
 
+	public void setEmployeeEntity(TEmployeeEntity employeeEntity) {
+		this.employeeEntity = employeeEntity;
+	}
 
-    // get set方法
-    public EmployeeService getEntityService() {
-        return employeeService;
-    }
+	public List<TEmployeeEntity> getEmployeeEntityList() {
+		return employeeEntityList;
+	}
 
-    public void setEntityService(EmployeeService employeeService) {
-        this.employeeService = employeeService;
-    }
+	public void setEmployeeEntityList(List<TEmployeeEntity> employeeEntityList) {
+		this.employeeEntityList = employeeEntityList;
+	}
 
-    public TEmployeeEntity getEntityEntity() {
-        return employeeEntity;
-    }
+	public Integer getInteger() {
+		return integer;
+	}
 
-    public void setEmployeeEntity(TEmployeeEntity employeeEntity) {
-        this.employeeEntity = employeeEntity;
-    }
+	public void setInteger(Integer integer) {
+		this.integer = integer;
+	}
 
-    public List<TEmployeeEntity> getBillEntityList() {
-        return employeeEntityList;
-    }
+	public int getResult() {
+		return result;
+	}
 
-    public void setEmployeeEntityList(List<TEmployeeEntity> employeeEntityList) {
-        this.employeeEntityList = employeeEntityList;
-    }
-
-    public Integer getInteger() {
-        return integer;
-    }
-
-    public void setInteger(Integer integer) {
-        this.integer = integer;
-    }
+	public void setResult(int result) {
+		this.result = result;
+	}
 }
 

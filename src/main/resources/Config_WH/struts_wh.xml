@@ -5,11 +5,18 @@
         "http://struts.apache.org/dtds/struts-2.5.dtd">
 
 <struts>
+
     <package name="default" namespace="/" extends="struts-default">
     	<global-allowed-methods>regex:.*</global-allowed-methods>
-    	<action name="emp_*" class="EmployeeAction" method="{1}">
+    	<action name="emp_*" class="action.employee.EmployeeAction" method="{1}">
     		<result name="list">/employee/Empquery.jsp</result>
+    		<result name="tianjia">/employee/Empsave.jsp</result>
     		<result name="input">/employee/Empsave.jsp</result>
+    		<result name="delete" type="redirect">emp_getEntityList.action</result>
+    		<result name="getemp">/employee/Empedit.jsp</result>
+    		<result name="update" type="redirect">emp_getEntityList.action</result>
+    		<result name="FALSE">/employee/wrong.jsp</result>
     	</action>
     </package>
+    
 </struts>
