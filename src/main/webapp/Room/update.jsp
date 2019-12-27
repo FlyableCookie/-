@@ -42,7 +42,7 @@
 					</tr>
 				</table>
 					<p  align="center">
-						<input type="submit" class="button label-warning" value="确认添加" style="width: 80px"/>&nbsp;&nbsp;
+						<input type="submit" class="button label-warning" value="确认修改" style="width: 80px"/>&nbsp;&nbsp;
 
 						<button class="button label-warning" onclick="javascript:history.back(-1);">返&nbsp;&nbsp;回 </button>
 					</p>

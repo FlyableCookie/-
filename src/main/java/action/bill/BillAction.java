@@ -1,6 +1,7 @@
 package action.bill;
 
 import com.opensymphony.xwork2.ActionSupport;
+import entity.Page;
 import entity.TBillEntity;
 import entity.TEmployeeEntity;
 import entity.TResidentsEntity;
@@ -22,6 +23,7 @@ public class BillAction extends ActionSupport {
 
     private TBillEntity billEntity;
     private List<TBillEntity> billEntityList;
+    private Page page;
     private Integer integer;
 
     public String getBill() {
@@ -36,7 +38,9 @@ public class BillAction extends ActionSupport {
     }
 
     public String getBillList() {
-        billEntityList = billService.findAll();
+        System.out.println(page.getPageNum());
+        System.out.println(page.getMax());
+        billEntityList = billService.byPage(page);
         return SUCCESS;
     }
 
@@ -80,6 +84,14 @@ public class BillAction extends ActionSupport {
 
 
     // get set方法
+    public void setPage(Page page) {
+        this.page = page;
+    }
+
+    public Page getPage() {
+        return page;
+    }
+
     public String getSaveResult() {
         return saveResult;
     }

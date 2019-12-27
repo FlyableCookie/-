@@ -14,7 +14,7 @@
 <body>
 <div class="container-fluid">
     <div id="topheader" >
-        <h1 id="title" align="center"><a >楼房管理</a></h1>
+        <h1 id="title" align="center"><a >万悦别墅群</a></h1>
     </div>
     <div id="navigation"></div>
 </div>
@@ -45,12 +45,19 @@
         </tr>
         <%
             }
-        %>
+    %>
     </table>
     <p>
          &nbsp;&nbsp;&nbsp;<input type="button" class="btn btn-default label-warning" aria-label="Left Align"class="button" value="添加楼房信息"
                onclick="location='addPage'"/>
+
+        &nbsp;&nbsp;&nbsp;<a type="button" class="btn btn-default label-warning" aria-label="Left Align"class="button"
+                                  href="<%=request.getContextPath()%>/main.jsp">返回</a>
+
+
+
     </p>
+
 </div>
 </div>
 </div>

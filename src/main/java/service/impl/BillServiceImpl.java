@@ -1,6 +1,7 @@
 package service.impl;
 
 import dao.BillDao;
+import entity.Page;
 import entity.TBillEntity;
 import entity.TResidentsEntity;
 import org.junit.Test;
@@ -73,5 +74,10 @@ public class BillServiceImpl implements BillService {
     @Override
     public TResidentsEntity isResident(int id){
         return billDao.isResident(id);
+    }
+
+    @Override
+    public List<TBillEntity> byPage(Page page) {
+        return billDao.byPage(page);
     }
 }

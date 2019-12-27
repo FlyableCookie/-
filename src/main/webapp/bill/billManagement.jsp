@@ -69,6 +69,13 @@
     <tbody id="tbody">
     </tbody>
 
+    <div class="container" style="position: absolute;bottom: 20px;right: 50px">
+        <ul class="pagination">
+            <li id="previous" class="page-item"><a class="page-link" href="#">上一页</a></li>
+            <li id="next" class="page-item"><a class="page-link" href="#">下一页</a></li>
+        </ul>
+    </div>
+
     <div class="container">
         <!-- 模态框 -->
         <div class="modal fade" id="addModal">
@@ -124,10 +131,6 @@
         </div>
 
     </div>
-
-<%--    <div class="img-div">--%>
-<%--        <img src="image/bill.jpg" style="width: 206px; height: 154px"/>--%>
-<%--    </div>--%>
 
 </table>
 

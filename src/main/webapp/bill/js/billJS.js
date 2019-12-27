@@ -1,5 +1,8 @@
 $(document).ready(function () {
     var path = $("#ContextPath").val();
+    var page = 0;
+    var max = 10;
+
     getAll();
 
     $("#byStatus").click(function () {
@@ -63,16 +66,31 @@ $(document).ready(function () {
                 }
 
             }
-        })
+        });
     });
 
+    $("#previous").click(function () {
+        if (page == 0){
+            return;
+        }
+        page--;
+        getAll(page, max);
+    });
+    
+    $("#next").click(function () {
+        page++;
+        getAll(page, max);
+    })
 
     
 
-    function getAll() {
+    function getAll(page, max) {
+        var data = {"page.pageNum":page, "page.max":10};+
         $.ajax({
             type:"POST",
             url:path + "/GetBillAction_getBillList",
+            datatype:"json",
+            data:data,
             success:function (back) {
                 $("#tbody").html(getListHtml(back));
             }

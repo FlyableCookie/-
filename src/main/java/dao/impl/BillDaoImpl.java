@@ -1,6 +1,7 @@
 package dao.impl;
 
 import dao.BillDao;
+import entity.Page;
 import entity.TBillEntity;
 import entity.TResidentsEntity;
 import org.hibernate.query.Query;
@@ -30,4 +31,12 @@ public class BillDaoImpl extends TimeDaoImpl<TBillEntity> implements BillDao {
         return (TResidentsEntity) query.uniqueResult();
     }
 
+    @Override
+    public List<TBillEntity> byPage(Page page) {
+        String hql = "From "+getEntityClass().getName();
+        Query query = getSession().createQuery(hql);
+        query.setFirstResult(page.getPageNum()*page.getMax());
+        query.setMaxResults(page.getMax());
+        return query.list();
+    }
 }

@@ -1,5 +1,6 @@
 package service;
 
+import entity.Page;
 import entity.TBillEntity;
 import entity.TResidentsEntity;
 
@@ -12,5 +13,6 @@ public interface BillService extends BasicService<TBillEntity> {
     List<TBillEntity> findByTime(Timestamp begin);
     List<TBillEntity> findByStatus(int status);
     TResidentsEntity isResident(int id);
+    List<TBillEntity> byPage(Page page);
 
 }
