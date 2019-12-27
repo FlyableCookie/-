@@ -22,13 +22,18 @@
     .spanSplit{
         color: #2aabd2;
     }
+    .img-div{
+        position: absolute;
+        right: 0;
+        bottom: 0;
+    }
 </style>
 <body>
 <input id="ContextPath" type="hidden" value="<%=path%>">
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <ul class="navbar-nav">
         <li class="nav-item active">
-            <a class="nav-link disabled" href="#">账单管理</a>
+            <a class="nav-link disabled" href="<%=path%>/main.jsp">账单管理</a>
         </li>
         <li>
             <a class="nav-link" href="#" data-toggle="modal"
@@ -39,6 +44,10 @@
         </li>
         <li>
             <a id="byStatus" class="nav-link" href="#">未缴费账单</a>
+        </li>
+        <li style="position: absolute;right: 10px">
+            <a class="nav-link disabled" style="display: inline" href="#">Merry Christmas</a>
+            <img src="image/timg.gif" style="width: 50px; height: 50px;display: inline">
         </li>
 <%--        <li class="nav-item">--%>
 <%--            <a class="nav-link disabled" href="#">nothing is true, everything is permitted</a>--%>
@@ -54,7 +63,6 @@
         <th>类型</th>
         <th>金额</th>
         <th>状态</th>
-        <th>收费人编号</th>
         <th>操作</th>
     </tr>
     </thead>
@@ -116,6 +124,10 @@
         </div>
 
     </div>
+
+<%--    <div class="img-div">--%>
+<%--        <img src="image/bill.jpg" style="width: 206px; height: 154px"/>--%>
+<%--    </div>--%>
 
 </table>
 

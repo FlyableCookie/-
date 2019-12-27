@@ -2,6 +2,7 @@ package service.impl;
 
 import dao.BillDao;
 import entity.TBillEntity;
+import entity.TResidentsEntity;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -69,4 +70,8 @@ public class BillServiceImpl implements BillService {
         return billDao.findByStatus(status);
     }
 
+    @Override
+    public TResidentsEntity isResident(int id){
+        return billDao.isResident(id);
+    }
 }

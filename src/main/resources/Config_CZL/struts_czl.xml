@@ -38,12 +38,8 @@
         
         <action name="BillAction_*" method="{1}">
             <result name="success" type="json">
-                <param name="root">result</param>
+                <param name="root">saveResult</param>
             </result>
-<!--            <exception-mapping exception="org.springframework.dao.DataIntegrityViolationException"-->
-<!--                               result="success">-->
-<!--                <param name="root">result</param>-->
-<!--            </exception-mapping>-->
             <allowed-methods>saveBill,updateBill,deleteBill</allowed-methods>
         </action>
 

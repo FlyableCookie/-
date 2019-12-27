@@ -68,7 +68,7 @@
         }
     </style>
 </head>
-<body class="bg-secondary">
+<body>
 <input id="path" type="hidden" value="<%=path%>">
 <div lass="block">
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">

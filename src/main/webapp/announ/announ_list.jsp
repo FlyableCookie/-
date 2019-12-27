@@ -35,6 +35,7 @@ window.onload = function(){
 	<table cellpadding="4" cellspacing="2" class="table2">
 		<tr>
 			<td height="25" colspan="8" class="tb_showall" align="center">&nbsp;公告信息列表
+				<a href="${pageContext.request.contextPath}/main.jsp">返回大厅</a>
 				<span style="color:red"><s:actionerror/></span>
 				<input type="submit" name="Delete" value="删 除" id="delAll" class="button3" />
 				<input type="button" name="SelectAll" onclick="selectAll()" value="全 选"  id="select" class="button3"/>

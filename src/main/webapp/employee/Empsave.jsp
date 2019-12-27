@@ -20,7 +20,7 @@
     <input type="text" class="form-control" name="employeeEntity.employeeName" placeholder="请输入姓名">
     <label>人员性别</label>
     <input type="text" class="form-control" name="employeeEntity.employeeSex" placeholder="请输入性别">
-    <label>人员编号</label>
+    <label>身份证号</label>
     <input type="text" class="form-control" name="employeeEntity.idNumber" placeholder="请输入身份证号">
     <label>联系方式</label>
     <input type="text" class="form-control" name="employeeEntity.phoneNumber" placeholder="请输入联系方式">

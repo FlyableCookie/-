@@ -56,7 +56,12 @@ $(document).ready(function () {
             data:json,
             success:function (back) {
                 console.log(back);
-                console.log("save!");
+                if (back == "success"){
+                    $("#all").click();
+                } else {
+                    alert("该居民不存在");
+                }
+
             }
         })
     });
@@ -78,19 +83,14 @@ $(document).ready(function () {
         var html = "";
         for (var i = 0; i<json.length; i++){
             html += "<tr id='tr"+json[i].billId+"'>";
-            html += "<td>"+json[i].billTime+"</td>";
+            html += "<td>"+json[i].billTime.substr(0, 10)+"</td>";
             html += "<td>"+json[i].residentsEntity.residentName+"</td>";
             html += "<td>"+json[i].billType+"</td>";
-            html += "<td>"+json[i].billMoney+"</td>";
+            html += "<td>￥"+json[i].billMoney+"</td>";
             if (json[i].billStatus == 0){
                 html += "<td id='status"+json[i].billId+"'>未缴费</td>";
             } else {
                 html += "<td id='status"+json[i].billId+"'>已缴费</td>";
-            }
-            if (json[i].employeeId != null){
-                html += "<td>"+json[i].employeeId+"</td>";
-            } else {
-                html += "<td>暂无</td>";
             }
             html += "<td>";
             html += "<a class=\"text-danger\" href='#'" +

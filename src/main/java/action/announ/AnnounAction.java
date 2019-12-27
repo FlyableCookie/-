@@ -95,11 +95,11 @@ public class AnnounAction extends ActionSupport{
 		String userName = (String) request.getSession().getAttribute("userName");
 		super.clearErrorsAndMessages();
 		if("".equals(announTitle) || announTitle == null) {
-			addActionError("????????????");
+			addActionError("标题不能为空！");
 			return "Addfalse";
 		}
 		if("".equals(announContent) || announContent == null) {
-			addActionError("??????????????");
+			addActionError("内容不能为空！");
 			return "Addfalse";
 		}
 		TAnnounEntity announEntity = new TAnnounEntity();
@@ -110,7 +110,7 @@ public class AnnounAction extends ActionSupport{
 		if(announService.addNew(announEntity)){
 			return "Addsuccess";
 		} else {
-			addActionError("???????");
+			addActionError("新增失败");
 			return "Addfalse";
 		}
 	}
@@ -120,7 +120,7 @@ public class AnnounAction extends ActionSupport{
 		if(announService.delete(announId)) {
 			return "Delsuccess";
 		}
-		addActionError("??????");
+		addActionError("删除失败");
 		return "Delfalse";
 	}
 	
